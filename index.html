@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexCore Global — From Cheorwon, to the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-900: #0b2216;
+    --green-800: #122d1e;
+    --green-700: #1a4a2e;
+    --green-600: #1e5c38;
+    --green-500: #2d7a4f;
+    --green-400: #3d9968;
+    --green-100: #d4edda;
+    --gold: #c9a044;
+    --gold-light: #e2bc6c;
+    --gold-pale: #f5e8c8;
+    --white: #ffffff;
+    --off-white: #f8f4ee;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #888;
+    --radius: 4px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+    background: transparent;
+  }
+  nav.scrolled {
+    background: rgba(11,34,22,0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .nav-logo-text span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .nav-logo-text span:last-child {
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    padding: 10px 22px;
+    background: var(--gold);
+    color: var(--green-900) !important;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    transition: var(--transition) !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover {
+    background: var(--gold-light) !important;
+    color: var(--green-900) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201,160,68,0.4);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--green-900);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 60% 50%, rgba(45,122,79,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,160,68,0.08) 0%, transparent 60%),
+      linear-gradient(160deg, #0b2216 0%, #122d1e 50%, #0b2216 100%);
+  }
+
+  /* Animated grain overlay */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Decorative rice stalk illustration */
+  .hero-deco {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 520px;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 5%;
+    max-width: 800px;
+    animation: heroIn 1.2s cubic-bezier(0.25,0.8,0.25,1) forwards;
+  }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(201,160,68,0.4);
+    border-radius: 20px;
+    margin-bottom: 28px;
+    animation: heroIn 1.2s 0.1s both;
+  }
+  .hero-badge span {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(54px, 7vw, 92px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    animation: heroIn 1.2s 0.2s both;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 28px;
+    animation: heroIn 1.2s 0.3s both;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    animation: heroIn 1.2s 0.4s both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: heroIn 1.2s 0.5s both;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--gold);
+    color: var(--green-900);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,160,68,0.45);
+  }
+
+  .btn-outline {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: var(--transition);
+    display: inline-block;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+    animation: fadeInUp 2s 1.5s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  }
+  .hero-scroll span {
+    font-size: 10px;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+    animation: scrollLine 2s infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ─── STATS BAR ─── */
+  #stats {
+    background: var(--green-700);
+    padding: 40px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  #stats::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 16px 24px;
+    position: relative;
+  }
+  .stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    display: block;
+    font-weight: 400;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 100px 5%; }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green-600);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--green-600);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--green-900);
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--green-600);
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--off-white);
+    overflow: hidden;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+  .about-text p strong {
+    color: var(--green-700);
+    font-weight: 600;
+  }
+
+  .about-quote {
+    margin-top: 36px;
+    padding: 24px 28px;
+    border-left: 3px solid var(--gold);
+    background: rgba(201,160,68,0.06);
+  }
+  .about-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--green-800);
+    line-height: 1.6;
+    margin: 0 !important;
+  }
+  .about-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-card {
+    background: var(--green-800);
+    border-radius: 4px;
+    padding: 48px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(201,160,68,0.08);
+  }
+  .about-card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .about-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+  .about-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+  }
+  .about-card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .badge {
+    padding: 6px 14px;
+    border: 1px solid rgba(201,160,68,0.4);
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: var(--green-900);
+    position: relative;
+    overflow: hidden;
+  }
+  #services::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45,122,79,0.15), transparent);
+    pointer-events: none;
+  }
+
+  .services-header {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+  }
+  .services-header .section-tag { color: var(--gold); }
+  .services-header .section-tag::before { background: var(--gold); }
+  .services-header .section-title { color: var(--white); }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 48px 36px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .service-card:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-4px);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: rgba(201,160,68,0.15);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-top: 24px;
+  }
+  .service-features li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .service-features li::before {
+    content: '→';
+    color: var(--gold);
+    font-size: 11px;
+  }
+
+  /* ─── FEATURED PRODUCT ─── */
+  #featured {
+    background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  #featured::after {
+    content: '철원오대쌀';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.025);
+    font-weight: 700;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .featured-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .featured-text .section-tag { color: var(--gold); }
+  .featured-text .section-tag::before { background: var(--gold); }
+  .featured-text .section-title { color: var(--white); margin-bottom: 24px; }
+
+  .featured-text p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    margin-bottom: 36px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .feature-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,160,68,0.2);
+    padding: 12px 16px;
+    border-radius: 2px;
+  }
+  .feature-pill-icon { font-size: 18px; display: block; margin-bottom: 6px; }
+  .feature-pill-name {
+    font-size: 12px;
+    color: var(--gold-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: block;
+  }
+  .feature-pill-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+    display: block;
+  }
+
+  .featured-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .featured-visual {
+    position: relative;
+  }
+
+  .specs-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .specs-card-header {
+    background: var(--gold);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .specs-card-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--green-900);
+    font-weight: 600;
+  }
+  .specs-card-header span {
+    font-size: 11px;
+    color: var(--green-800);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .specs-table {
+    padding: 8px 0;
+  }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+  }
+  .spec-row:hover { background: rgba(255,255,255,0.04); }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-key {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+  }
+  .spec-val {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .awards-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .award-badge {
+    flex: 1;
+    background: rgba(201,160,68,0.1);
+    border: 1px solid rgba(201,160,68,0.25);
+    padding: 14px 12px;
+    text-align: center;
+    border-radius: 2px;
+  }
+  .award-badge-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    display: block;
+  }
+  .award-badge-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ─── WHY CHEORWON ─── */
+  #cheorwon {
+    background: var(--off-white);
+  }
+
+  .cheorwon-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cheorwon-header {
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .cheorwon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .reason-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 36px 28px;
+    border-radius: 2px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .reason-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .reason-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+  .reason-card:hover::before { transform: scaleX(1); }
+
+  .reason-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .reason-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--green-800);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .reason-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .reason-highlight {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--green-600);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .cheorwon-quote-block {
+    background: var(--green-800);
+    padding: 56px 64px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cheorwon-quote-block::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    color: rgba(201,160,68,0.1);
+    line-height: 1;
+  }
+
+  .cheorwon-quote-block blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-style: italic;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+    max-width: 760px;
+    position: relative;
+    z-index: 1;
+  }
+  .cheorwon-quote-block cite {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ─── PRODUCTS ─── */
+  #products {
+    background: var(--green-900);
+    position: relative;
+  }
+
+  .products-header {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .products-header .section-tag { color: var(--gold); }
+  .products-header .section-tag::before { background: var(--gold); }
+  .products-header .section-title { color: var(--white); }
+
+  .products-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    background: rgba(255,255,255,0.03);
+  }
+  .product-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  }
+
+  .product-card-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card.featured-prod .product-card-img {
+    height: 260px;
+    font-size: 80px;
+  }
+  .product-card-img-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--green-700), var(--green-800));
+  }
+  .product-card-img-bg-2 {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2d5a27, #1a3818);
+  }
+  .product-card-img-bg-3 {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a3848, #0d2030);
+  }
+  .product-card-img span { position: relative; z-index: 1; }
+
+  .product-card-body {
+    padding: 24px;
+  }
+  .product-card-tag {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .product-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .product-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .product-card-markets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .market-tag {
+    padding: 3px 10px;
+    background: rgba(201,160,68,0.12);
+    border: 1px solid rgba(201,160,68,0.25);
+    border-radius: 10px;
+    font-size: 10px;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── PARTNERS ─── */
+  #partners {
+    background: var(--off-white);
+    padding: 60px 5%;
+    overflow: hidden;
+  }
+
+  .partners-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .partners-title {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .partners-track-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+  }
+
+  .partners-track {
+    display: flex;
+    gap: 48px;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .partners-track:hover { animation-play-state: paused; }
+
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 2px;
+    white-space: nowrap;
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 160px;
+    transition: var(--transition);
+  }
+  .partner-logo:hover {
+    border-color: var(--green-600);
+    color: var(--green-700);
+  }
+
+  /* ─── NEWS ─── */
+  #news {
+    background: var(--white);
+  }
+
+  .news-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .news-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .news-card {
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    background: var(--off-white);
+  }
+  .news-card:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .news-card-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .news-card.featured-news .news-card-img { height: 240px; }
+
+  .news-img-1 { background: linear-gradient(135deg, #1a4a2e, #2d7a4f); }
+  .news-img-2 { background: linear-gradient(135deg, #1a3040, #0d2030); }
+  .news-img-3 { background: linear-gradient(135deg, #3a2a10, #5a4020); }
+
+  .news-card-body { padding: 24px; }
+
+  .news-tag {
+    font-size: 10px;
+    color: var(--green-600);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .news-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--green-900);
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .news-card.featured-news h3 { font-size: 24px; }
+
+  .news-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .news-date {
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
+
+  .read-more {
+    font-size: 12px;
+    color: var(--green-600);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s;
+  }
+  .read-more:hover { gap: 10px; }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--green-900);
+    padding: 100px 5% 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(45,122,79,0.2), transparent);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-left .section-tag { color: var(--gold); }
+  .contact-left .section-tag::before { background: var(--gold); }
+  .contact-left .section-title { color: var(--white); margin-bottom: 24px; }
+
+  .contact-left p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .contact-details li .cd-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,160,68,0.12);
+    border: 1px solid rgba(201,160,68,0.25);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .contact-details li .cd-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-details li .cd-label {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .contact-details li .cd-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 44px;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+  .form-group select option { background: var(--green-800); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--gold);
+    color: var(--green-900);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: var(--transition);
+    margin-top: 8px;
+  }
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,160,68,0.4);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--green-900);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 5%;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-reg {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── REVEAL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .featured-inner { grid-template-columns: 1fr; gap: 40px; }
+    .cheorwon-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .cheorwon-quote-block { padding: 36px 28px; }
+    .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .news-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="18" fill="rgba(201,160,68,0.15)"/>
+      <path d="M18 6 C18 6, 10 12, 10 20 C10 26, 14 30, 18 30 C22 30, 26 26, 26 20 C26 12, 18 6, 18 6Z" fill="none" stroke="#c9a044" stroke-width="1.5"/>
+      <path d="M18 10 L18 28" stroke="#c9a044" stroke-width="1" stroke-dasharray="2 2"/>
+      <path d="M14 16 C14 16, 16 18, 18 17" stroke="#c9a044" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M22 19 C22 19, 20 21, 18 20" stroke="#c9a044" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span>NexCore Global</span>
+      <span>Cheorwon, Korea</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Decorative rice stalk SVG -->
+  <svg class="hero-deco" viewBox="0 0 200 300" fill="none">
+    <line x1="100" y1="280" x2="100" y2="20" stroke="white" stroke-width="2"/>
+    <ellipse cx="100" cy="30" rx="8" ry="14" stroke="white" stroke-width="1.5" transform="rotate(-15 100 30)"/>
+    <ellipse cx="87" cy="55" rx="7" ry="12" stroke="white" stroke-width="1.5" transform="rotate(10 87 55)"/>
+    <ellipse cx="113" cy="70" rx="7" ry="12" stroke="white" stroke-width="1.5" transform="rotate(-10 113 70)"/>
+    <ellipse cx="85" cy="90" rx="7" ry="12" stroke="white" stroke-width="1.5" transform="rotate(12 85 90)"/>
+    <ellipse cx="115" cy="105" rx="7" ry="12" stroke="white" stroke-width="1.5" transform="rotate(-12 115 105)"/>
+    <ellipse cx="84" cy="125" rx="6" ry="11" stroke="white" stroke-width="1.5" transform="rotate(15 84 125)"/>
+    <ellipse cx="116" cy="140" rx="6" ry="11" stroke="white" stroke-width="1.5" transform="rotate(-15 116 140)"/>
+    <ellipse cx="86" cy="158" rx="6" ry="10" stroke="white" stroke-width="1.5" transform="rotate(15 86 158)"/>
+    <ellipse cx="114" cy="173" rx="6" ry="10" stroke="white" stroke-width="1.5" transform="rotate(-15 114 173)"/>
+    <ellipse cx="88" cy="190" rx="5" ry="9" stroke="white" stroke-width="1.5" transform="rotate(12 88 190)"/>
+    <ellipse cx="112" cy="205" rx="5" ry="9" stroke="white" stroke-width="1.5" transform="rotate(-12 112 205)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Export Consignment Marketing · Cheorwon, Gangwon</span>
+    </div>
+
+    <h1 class="hero-headline">
+      Your Gateway<br>
+      to <em>Korean</em><br>
+      Markets.
+    </h1>
+    <p class="hero-subline">— From Cheorwon, to the World.</p>
+    <p class="hero-desc">
+      NexCore Global connects Korea's finest regional products with buyers across 21+ countries through trusted export consignment marketing. We carry the story of this land in everything we sell.
+    </p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#products" class="btn-outline">View Products</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <span class="stat-number">21+</span>
+      <span class="stat-label">Countries Exported</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-number">30–40%</span>
+      <span class="stat-label">Price Premium vs Standard</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-number">2×</span>
+      <span class="stat-label">Presidential Award Winner</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Government Purchase Guarantee</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-tag">About NexCore Global</div>
+      <h2 class="section-title">Rooted in<br><em>Cheorwon</em></h2>
+      <br>
+      <p>NexCore Global is an export consignment marketing company based in <strong>Cheorwon-gun, Gangwon Province</strong> — the heart of Korea's most celebrated agricultural region, adjacent to the DMZ.</p>
+      <p>We represent Korean manufacturers, farmers, and producers in global markets — handling buyer sourcing, negotiation, documentation, and logistics coordination on a full consignment basis. <strong>No upfront cost to suppliers.</strong></p>
+      <p>From premium agricultural products grown in DMZ clean-zone soil to industrial goods manufactured across Gangwon Province, we bridge the gap between Korea's finest regional products and the international buyers who deserve them.</p>
+      <div class="about-quote">
+        <p>"This is not a marketing story. This is where I am from."</p>
+        <cite>— Ki-Ho Kim, CEO · NexCore Global · Cheorwon, South Korea</cite>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-card">
+        <span class="about-card-icon">🌾</span>
+        <h3>Born in Wasu-ri, Cheorwon</h3>
+        <p>CEO Ki-Ho Kim was born and raised on the very land NexCore Global now represents. His family has farmed Cheorwon soil for generations — the same fields now registered under NexCore Global's agricultural management.</p>
+        <div class="about-card-badges">
+          <span class="badge">Gangwon Province</span>
+          <span class="badge">DMZ Clean Zone</span>
+          <span class="badge">Est. 2024</span>
+          <span class="badge">Business Reg. 377-28-01674</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title" style="color:white;">We do more than export.<br><em style="color:var(--gold-light);">We build market presence.</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-number">01</span>
+      <span class="service-icon">🌏</span>
+      <h3>Export Consignment Marketing</h3>
+      <p>We represent Korean manufacturers and farmers in global markets — handling the full export process on your behalf.</p>
+      <ul class="service-features">
+        <li>International buyer sourcing & qualification</li>
+        <li>Price negotiation & contract management</li>
+        <li>Export documentation & customs support</li>
+        <li>Logistics coordination & tracking</li>
+        <li>No upfront cost to suppliers</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-number">02</span>
+      <span class="service-icon">🔍</span>
+      <h3>Market Entry & Buyer Network</h3>
+      <p>From EC21 to direct B2B networks across Southeast Asia, Australia, and the Middle East — we open the right doors.</p>
+      <ul class="service-features">
+        <li>B2B platform management (EC21, TradeKey)</li>
+        <li>Southeast Asia market entry</li>
+        <li>Australia & Middle East channels</li>
+        <li>Buyer due diligence & vetting</li>
+        <li>Export market analysis</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-number">03</span>
+      <span class="service-icon">🤝</span>
+      <h3>Local Product Sourcing</h3>
+      <p>Based in Cheorwon, we have direct access to certified agricultural products and industrial suppliers seeking export partners.</p>
+      <ul class="service-features">
+        <li>Cheorwon & Gangwon certified products</li>
+        <li>Agricultural & food products</li>
+        <li>Industrial & manufactured goods</li>
+        <li>Cosmetics & health products</li>
+        <li>Quality certification support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURED PRODUCT ─── -->
+<section id="featured">
+  <div class="featured-inner">
+    <div class="featured-text reveal">
+      <div class="section-tag">Featured Product</div>
+      <h2 class="section-title">Cheorwon<br><em>Odae Rice</em></h2>
+      <br>
+      <p>Korea's most celebrated premium rice — grown where the DMZ begins, on a land untouched by industrial activity for over 70 years. Government-certified, Presidential Award-winning, and exported to 21+ countries.</p>
+
+      <div class="features-grid">
+        <div class="feature-pill">
+          <span class="feature-pill-icon">🌿</span>
+          <span class="feature-pill-name">Single-Variety Purity</span>
+          <span class="feature-pill-desc">100% Odae variety, never blended</span>
+        </div>
+        <div class="feature-pill">
+          <span class="feature-pill-icon">💧</span>
+          <span class="feature-pill-name">Zero Contamination</span>
+          <span class="feature-pill-desc">DMZ pure water source</span>
+        </div>
+        <div class="feature-pill">
+          <span class="feature-pill-icon">🌡️</span>
+          <span class="feature-pill-name">Diurnal Temperature</span>
+          <span class="feature-pill-desc">8–11°C day-night gap</span>
+        </div>
+        <div class="feature-pill">
+          <span class="feature-pill-icon">🍱</span>
+          <span class="feature-pill-name">Stays Soft When Cold</span>
+          <span class="feature-pill-desc">Ideal for bento & meal kits</span>
+        </div>
+        <div class="feature-pill">
+          <span class="feature-pill-icon">🏆</span>
+          <span class="feature-pill-name">Gov. Certified</span>
+          <span class="feature-pill-desc">#1 flavor rating, 1992 NAQS</span>
+        </div>
+        <div class="feature-pill">
+          <span class="feature-pill-icon">🌾</span>
+          <span class="feature-pill-name">Low Pesticide</span>
+          <span class="feature-pill-desc">Natural pest resistance</span>
+        </div>
+      </div>
+
+      <div class="featured-buttons">
+        <a href="#contact" class="btn-primary">Request Sample</a>
+        <a href="#contact" class="btn-outline">Download Catalogue</a>
+      </div>
+    </div>
+
+    <div class="featured-visual reveal reveal-delay-2">
+      <div class="specs-card">
+        <div class="specs-card-header">
+          <h3>철원 오대쌀</h3>
+          <span>Product Spec</span>
+        </div>
+        <div class="specs-table">
+          <div class="spec-row"><span class="spec-key">Variety</span><span class="spec-val">Odae (오대) — Single Variety</span></div>
+          <div class="spec-row"><span class="spec-key">Origin</span><span class="spec-val">Cheorwon-gun, Gangwon, Korea</span></div>
+          <div class="spec-row"><span class="spec-key">Altitude</span><span class="spec-val">250m above sea level</span></div>
+          <div class="spec-row"><span class="spec-key">Grade</span><span class="spec-val">Government Quality Certified</span></div>
+          <div class="spec-row"><span class="spec-key">Moisture</span><span class="spec-val">14% max</span></div>
+          <div class="spec-row"><span class="spec-key">Grain Length</span><span class="spec-val">~5.2mm average</span></div>
+          <div class="spec-row"><span class="spec-key">Harvest</span><span class="spec-val">Annual — Autumn</span></div>
+          <div class="spec-row"><span class="spec-key">Packaging</span><span class="spec-val">10kg / 20kg (customizable)</span></div>
+          <div class="spec-row"><span class="spec-key">Markets</span><span class="spec-val">Australia (#1), USA, 21+ countries</span></div>
+          <div class="spec-row"><span class="spec-key">Certifications</span><span class="spec-val">Korean Gov. Cert · Halal · HACCP</span></div>
+        </div>
+      </div>
+      <div class="awards-strip">
+        <div class="award-badge">
+          <span class="award-badge-year">1992</span>
+          <span class="award-badge-label">Best Flavor<br>NAQS Korea</span>
+        </div>
+        <div class="award-badge">
+          <span class="award-badge-year">2005</span>
+          <span class="award-badge-label">Presidential<br>Award</span>
+        </div>
+        <div class="award-badge">
+          <span class="award-badge-year">GI #13</span>
+          <span class="award-badge-label">Geographic<br>Indication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHEORWON ─── -->
+<section id="cheorwon">
+  <div class="cheorwon-inner">
+    <div class="cheorwon-header reveal">
+      <div class="section-tag">Why Cheorwon</div>
+      <h2 class="section-title">Asia's Last<br><em>Untouched Land</em></h2>
+    </div>
+    <div class="cheorwon-grid">
+      <div class="reason-card reveal">
+        <span class="reason-icon">🛡️</span>
+        <h3>DMZ Clean Zone</h3>
+        <p>Cheorwon sits directly adjacent to the Korean Demilitarized Zone — a 4km military buffer sealed from industrial and agricultural pollution since 1953.</p>
+        <span class="reason-highlight">→ 70+ years of untouched ecology</span>
+      </div>
+      <div class="reason-card reveal reveal-delay-1">
+        <span class="reason-icon">💧</span>
+        <h3>Pristine Water Source</h3>
+        <p>Rivers flowing from the DMZ headwaters deliver clean, mineral-rich water directly to Cheorwon's rice paddies — one of Korea's purest irrigation sources.</p>
+        <span class="reason-highlight">→ Zero industrial contamination</span>
+      </div>
+      <div class="reason-card reveal reveal-delay-2">
+        <span class="reason-icon">🌡️</span>
+        <h3>Optimal Climate</h3>
+        <p>At 250m above sea level, Cheorwon experiences 8–11°C day-to-night temperature differences during the ripening season — perfect for dense, flavorful grain development.</p>
+        <span class="reason-highlight">→ Natural flavor intensification</span>
+      </div>
+      <div class="reason-card reveal">
+        <span class="reason-icon">🏔️</span>
+        <h3>Volcanic Soil</h3>
+        <p>The Cheorwon Plain rests on lava plateau formed 270,000 years ago. This volcanic basalt soil is exceptionally fertile — recognized as Gangwon's premier granary.</p>
+        <span class="reason-highlight">→ Rich mineral composition</span>
+      </div>
+      <div class="reason-card reveal reveal-delay-1">
+        <span class="reason-icon">🌿</span>
+        <h3>Low Pesticide Environment</h3>
+        <p>The clean ecosystem and cold climate naturally reduce pest incidence, resulting in significantly lower chemical use compared to other Korean agricultural regions.</p>
+        <span class="reason-highlight">→ Naturally lower chemical use</span>
+      </div>
+      <div class="reason-card reveal reveal-delay-2">
+        <span class="reason-icon">📜</span>
+        <h3>Government Certified</h3>
+        <p>Cheorwon Odae Rice holds Geographic Indication registration #13 — Korea's official recognition of regionally-specific product quality tied to the land and climate.</p>
+        <span class="reason-highlight">→ GI Certified, Reg. No. 13</span>
+      </div>
+    </div>
+    <div class="cheorwon-quote-block reveal">
+      <blockquote>
+        "When you choose Cheorwon products, you are choosing something grown in soil that has never known a factory, watered by streams that flow from a zone untouched by industry for over 70 years."
+      </blockquote>
+      <cite>— Ki-Ho Kim · CEO, NexCore Global · Cheorwon, Gangwon Province</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section id="products">
+  <div class="products-header reveal">
+    <div>
+      <div class="section-tag">Our Products</div>
+      <h2 class="section-title">What We <em style="color:var(--gold-light);">Export</em></h2>
+    </div>
+    <a href="#contact" class="btn-primary">Inquire About Products</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card featured-prod reveal">
+      <div class="product-card-img">
+        <div class="product-card-img-bg"></div>
+        <span>🌾</span>
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-tag">⭐ Featured · Agricultural</span>
+        <h3>Cheorwon Odae Rice</h3>
+        <p>Korea's premier single-variety rice from the DMZ clean zone. Government-certified, Presidential Award-winning, exported to 21+ countries with a 30–40% price premium.</p>
+        <div class="product-card-markets">
+          <span class="market-tag">Australia #1</span>
+          <span class="market-tag">USA</span>
+          <span class="market-tag">21+ Countries</span>
+          <span class="market-tag">Halal Available</span>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-card-img">
+        <div class="product-card-img-bg-2"></div>
+        <span>🥬</span>
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-tag">Agricultural · Food</span>
+        <h3>Gangwon Agricultural Products</h3>
+        <p>Certified Gangwon-origin agricultural produce and processed food products — including grains, vegetables, and specialty items from Korea's cleanest farming region.</p>
+        <div class="product-card-markets">
+          <span class="market-tag">Southeast Asia</span>
+          <span class="market-tag">Middle East</span>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-card-img">
+        <div class="product-card-img-bg-3"></div>
+        <span>🏭</span>
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-tag">Industrial · B2B</span>
+        <h3>Korean Industrial Products</h3>
+        <p>Korean-manufactured industrial goods sourced from Cheorwon and Gangwon region suppliers. High quality, competitive pricing, full export documentation support.</p>
+        <div class="product-card-markets">
+          <span class="market-tag">Vietnam</span>
+          <span class="market-tag">Philippines</span>
+          <span class="market-tag">UAE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARTNERS ─── -->
+<div id="partners">
+  <div class="partners-inner">
+    <p class="partners-title">Institutional Support & Network Partners</p>
+    <div class="partners-track-wrapper">
+      <div class="partners-track">
+        <div class="partner-logo">철원군청</div>
+        <div class="partner-logo">강원도청</div>
+        <div class="partner-logo">KOTRA 강원</div>
+        <div class="partner-logo">한국무역협회 강원</div>
+        <div class="partner-logo">강원경제진흥원</div>
+        <div class="partner-logo">농관원 철원</div>
+        <div class="partner-logo">수출바우처 중진공</div>
+        <div class="partner-logo">EC21</div>
+        <div class="partner-logo">동송농협</div>
+        <div class="partner-logo">철원군청</div>
+        <div class="partner-logo">강원도청</div>
+        <div class="partner-logo">KOTRA 강원</div>
+        <div class="partner-logo">한국무역협회 강원</div>
+        <div class="partner-logo">강원경제진흥원</div>
+        <div class="partner-logo">농관원 철원</div>
+        <div class="partner-logo">수출바우처 중진공</div>
+        <div class="partner-logo">EC21</div>
+        <div class="partner-logo">동송농협</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── NEWS ─── -->
+<section id="news">
+  <div class="news-inner">
+    <div class="news-header reveal">
+      <div>
+        <div class="section-tag">Latest News</div>
+        <h2 class="section-title">Updates &<br><em>Press Room</em></h2>
+      </div>
+      <a href="#" class="btn-primary" style="flex-shrink:0;">View All News</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card featured-news reveal">
+        <div class="news-card-img news-img-1"><span>🌾</span></div>
+        <div class="news-card-body">
+          <span class="news-tag">Product · Export</span>
+          <h3>Cheorwon Odae Rice Export Catalogue Now Available for International Buyers</h3>
+          <p>NexCore Global has released its official English-language product catalogue for Cheorwon Odae Rice, targeting B2B buyers across Australia, Southeast Asia, and the Middle East.</p>
+          <span class="news-date">April 2025</span><br><br>
+          <a href="#contact" class="read-more">Request Catalogue →</a>
+        </div>
+      </div>
+      <div class="news-card reveal reveal-delay-1">
+        <div class="news-card-img news-img-2"><span>🌏</span></div>
+        <div class="news-card-body">
+          <span class="news-tag">Company · Partnership</span>
+          <h3>NexCore Global Listed on EC21 International B2B Platform</h3>
+          <p>Export consignment services and Cheorwon products are now available to qualified international buyers through EC21.</p>
+          <span class="news-date">March 2025</span><br><br>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card reveal reveal-delay-2">
+        <div class="news-card-img news-img-3"><span>🏛️</span></div>
+        <div class="news-card-body">
+          <span class="news-tag">Policy · Support</span>
+          <h3>2025 Gangwon Export Support Programs Now Open for Applications</h3>
+          <p>Cheorwon-based exporters can apply for 80% cost-coverage on promotional materials and e-content production through April 2025.</p>
+          <span class="news-date">February 2025</span><br><br>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Ready to Export<br><em>with NexCore Global?</em></h2>
+        <br>
+        <p>Whether you're a Korean supplier seeking global buyers, or an international buyer sourcing premium products from Korea — let's start the conversation.</p>
+        <ul class="contact-details">
+          <li>
+            <div class="cd-icon">📍</div>
+            <div class="cd-text">
+              <span class="cd-label">Address</span>
+              <span class="cd-value">2F, 181 Wasuro-ro, Seomyeon,<br>Cheorwon-gun, Gangwon Province, South Korea</span>
+            </div>
+          </li>
+          <li>
+            <div class="cd-icon">✉️</div>
+            <div class="cd-text">
+              <span class="cd-label">Email</span>
+              <span class="cd-value">ceo@nexcoreglobal.co.kr<br>admin@nexcoreglobal.co.kr</span>
+            </div>
+          </li>
+          <li>
+            <div class="cd-icon">📞</div>
+            <div class="cd-text">
+              <span class="cd-label">Phone</span>
+              <span class="cd-value">+82-10-3345-0579</span>
+            </div>
+          </li>
+          <li>
+            <div class="cd-icon">🏢</div>
+            <div class="cd-text">
+              <span class="cd-label">Business Registration</span>
+              <span class="cd-value">377-28-01674</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <h3 class="form-title">Send an Inquiry</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Company Name">
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <input type="text" placeholder="Australia">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select>
+            <option value="">Select inquiry type</option>
+            <option>Product Sample Request</option>
+            <option>Export Consignment Partnership</option>
+            <option>Buyer Inquiry — Odae Rice</option>
+            <option>Buyer Inquiry — Agricultural Products</option>
+            <option>Buyer Inquiry — Industrial Products</option>
+            <option>Download Catalogue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your requirements, target volume, or any questions you have..."></textarea>
+        </div>
+        <button class="form-submit">Send Inquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2025 NexCore Global. All Rights Reserved.</span>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="footer-reg">Business Reg. 377-28-01674 · Cheorwon-gun, Gangwon, South Korea</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Form submit handler
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    const email = document.querySelector('input[type="email"]').value;
+    if (email) {
+      this.textContent = '✓ Inquiry Sent — We\'ll be in touch shortly.';
+      this.style.background = 'var(--green-500)';
+      this.style.color = 'white';
+    }
+  });
+</script>
+</body>
+</html>
