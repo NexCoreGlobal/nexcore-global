@@ -3,550 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexCore Global — Korea's Premier Export Partner</title>
+<title>Products — NexCore Global</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #1B3564;
-  --navy-dark: #0f1f3d;
-  --navy-light: #243f75;
-  --gold: #C9A044;
-  --gold-light: #E2BC6C;
-  --gold-pale: #f5e8c8;
-  --green: #1e5438;
-  --green-light: #2d7a4f;
-  --white: #ffffff;
-  --off-white: #f8f6f2;
-  --text: #1a1a1a;
-  --text-mid: #4a4a4a;
-  --ease: cubic-bezier(0.25,0.8,0.25,1);
-}
+:root{--navy:#1B3564;--navy-dark:#0f1f3d;--navy-light:#243f75;--gold:#C9A044;--gold-light:#E2BC6C;--gold-pale:#f5e8c8;--green:#1e5438;--green-light:#2d7a4f;--white:#ffffff;--off-white:#f8f6f2;--text:#1a1a1a;--text-mid:#4a4a4a;--ease:cubic-bezier(0.25,0.8,0.25,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:76px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s var(--ease)}
-nav.scrolled{background:rgba(15,31,61,.97);backdrop-filter:blur(12px);box-shadow:0 2px 30px rgba(0,0,0,.35)}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:76px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,31,61,.97);backdrop-filter:blur(12px);box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .nav-logo img{height:44px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:1.2px;text-transform:uppercase;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
 .nav-links a:hover{color:var(--gold)}
-.nav-links a:hover::after{width:100%}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
 .nav-links a.active{color:var(--gold)}
 .nav-cta{padding:10px 24px;background:var(--gold)!important;color:var(--navy-dark)!important;border-radius:2px;font-weight:600!important}
 .nav-cta::after{display:none!important}
-.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,160,68,.4)}
+.nav-cta:hover{background:var(--gold-light)!important}
 
-/* HERO */
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--navy-dark)}
-.hero-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1555988786-1038c1a2d02e?w=1920&q=80');background-size:cover;background-position:center;opacity:.18}
-/* ↑ REPLACE: Change URL above to your own hero background image */
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,31,61,.95) 0%,rgba(15,31,61,.75) 60%,rgba(27,53,100,.5) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 5%;max-width:820px;animation:fadeUp 1.1s .1s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(201,160,68,.4);border-radius:20px;margin-bottom:28px}
-.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero-tag span{font-size:11px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
-.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6.5vw,90px);font-weight:300;color:var(--white);line-height:1.0;letter-spacing:-1px;margin-bottom:20px}
-.hero-h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.8;max-width:560px;margin-bottom:44px;font-weight:300}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-gold{padding:14px 32px;background:var(--gold);color:var(--navy-dark);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .35s var(--ease);display:inline-block}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,160,68,.45)}
-.btn-outline{padding:14px 32px;background:transparent;color:var(--white);font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,.35);transition:all .35s var(--ease);display:inline-block}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.35}
-.hero-scroll span{font-size:10px;color:var(--white);letter-spacing:2px;text-transform:uppercase}
-.scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,white,transparent);animation:sb 2s infinite}
-@keyframes sb{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* PAGE HERO */
+.page-hero{padding:160px 5% 80px;background:linear-gradient(135deg,var(--navy-dark),var(--navy));position:relative;overflow:hidden;text-align:center}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=60');background-size:cover;background-position:center;opacity:.1}
+/* ↑ REPLACE: Change URL above to your products page hero background */
+.page-hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.tag{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:400;line-height:1.1}
+.page-hero p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;margin-top:16px}
+.filter-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:32px}
+.filter-btn{padding:9px 20px;border:1px solid rgba(201,160,68,.3);border-radius:20px;font-size:12px;color:rgba(255,255,255,.65);cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .3s;background:transparent;font-family:'DM Sans',sans-serif}
+.filter-btn:hover,.filter-btn.active{background:var(--gold);color:var(--navy-dark);border-color:var(--gold);font-weight:600}
 
-/* STATS */
-#stats{background:var(--navy);padding:44px 5%;position:relative}
-#stats::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.stats-row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
-.stat-item{text-align:center;padding:16px 20px;position:relative}
-.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.12)}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:var(--gold);line-height:1;display:block}
-.stat-l{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;display:block}
-
-/* SECTIONS */
-section{padding:96px 5%}
+/* PRODUCT SECTIONS */
+.prod-section{padding:88px 5%;scroll-margin-top:80px}
+.prod-section:nth-child(even){background:var(--white)}
+.prod-section:nth-child(odd){background:var(--off-white)}
 .section-wrap{max-width:1200px;margin:0 auto}
-.tag{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
-.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:400;line-height:1.1;color:var(--navy-dark)}
-.h2 em{font-style:italic;color:var(--navy-light)}
-.h2-light{color:var(--white)}
-.h2-light em{color:var(--gold-light)}
-.lead{font-size:16px;color:var(--text-mid);line-height:1.9;margin-top:16px}
+.prod-section-hdr{display:flex;align-items:center;gap:24px;margin-bottom:52px;padding-bottom:28px;border-bottom:1px solid rgba(0,0,0,.07)}
+.prod-section-icon{width:60px;height:60px;background:var(--navy-dark);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.prod-section-hdr h2{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--navy-dark);font-weight:600;line-height:1.1}
+.prod-section-hdr p{font-size:14px;color:var(--text-mid);margin-top:6px;line-height:1.6;max-width:600px}
 
-/* ABOUT / INTRO */
-#intro{background:var(--off-white)}
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.intro-text p{font-size:15px;color:var(--text-mid);line-height:1.9;margin-bottom:18px}
-.intro-text p strong{color:var(--navy)}
-.intro-quote{margin-top:32px;padding:22px 26px;border-left:3px solid var(--gold);background:rgba(201,160,68,.06)}
-.intro-quote p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--navy-dark);line-height:1.6}
-.intro-quote cite{display:block;font-size:11px;color:var(--text-mid);letter-spacing:1.5px;text-transform:uppercase;margin-top:10px;font-style:normal}
-.intro-img{position:relative;border-radius:4px;overflow:hidden;height:460px}
-.intro-img img{width:100%;height:100%;object-fit:cover;display:block}
-/* ↑ REPLACE: Change src in intro image tag to your own photo */
-.intro-img-badge{position:absolute;bottom:24px;left:24px;background:rgba(15,31,61,.92);padding:16px 20px;border-top:2px solid var(--gold)}
-.intro-img-badge span{display:block;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
-.intro-img-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-top:4px}
+/* FEATURED PRODUCT (Rice) */
+.featured-prod{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.feat-img{position:relative;border-radius:4px;overflow:hidden;height:480px}
+.feat-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* ↑ REPLACE: Change src in featured image to your own product photo */
+.feat-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.7) 0%,transparent 50%)}
+.feat-badge-row{position:absolute;bottom:20px;left:20px;right:20px;display:flex;gap:8px;flex-wrap:wrap}
+.feat-badge{padding:6px 14px;background:rgba(201,160,68,.9);color:var(--navy-dark);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:2px}
+.feat-content h3{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--navy-dark);margin-bottom:12px;line-height:1.1;font-weight:700}
+.feat-content .desc{font-size:15px;color:var(--text-mid);line-height:1.9;margin-bottom:24px}
+.feat-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.feat-ft{background:var(--off-white);border:1px solid rgba(0,0,0,.06);padding:12px 14px;border-radius:2px}
+.feat-ft-icon{font-size:18px;display:block;margin-bottom:5px}
+.feat-ft-name{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:.3px;display:block}
+.feat-ft-desc{font-size:11px;color:var(--text-mid);margin-top:2px;display:block}
+.specs-table{background:var(--navy-dark);border-radius:4px;overflow:hidden;margin-bottom:24px}
+.specs-hdr{background:var(--gold);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.specs-hdr h4{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy-dark);font-weight:700}
+.specs-hdr span{font-size:11px;color:var(--navy-dark);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.spec-row{display:flex;justify-content:space-between;padding:11px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.spec-row:hover{background:rgba(255,255,255,.04)}
+.spec-row:last-child{border:none}
+.spec-k{font-size:12px;color:rgba(255,255,255,.45)}
+.spec-v{font-size:13px;color:rgba(255,255,255,.85);font-weight:500;text-align:right}
+.award-row{display:flex;gap:10px;margin-bottom:24px}
+.award{flex:1;background:rgba(201,160,68,.08);border:1px solid rgba(201,160,68,.2);padding:12px;text-align:center;border-radius:2px}
+.award-yr{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);display:block}
+.award-lbl{font-size:10px;color:var(--text-mid);letter-spacing:1px;text-transform:uppercase;display:block;margin-top:3px}
+.btn-navy{padding:13px 28px;background:var(--navy-dark);color:var(--white);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .35s;display:inline-block;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(27,53,100,.4)}
+.btn-gold-sm{padding:13px 28px;background:var(--gold);color:var(--navy-dark);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .35s;display:inline-block}
+.btn-gold-sm:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* SERVICES */
-#services{background:var(--navy-dark);position:relative;overflow:hidden}
-#services::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(27,53,100,.4),transparent);pointer-events:none}
-.services-hdr{margin-bottom:60px}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:44px 32px;position:relative;overflow:hidden;transition:all .4s var(--ease);cursor:default}
-.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .4s}
-.svc-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
-.svc-card:hover::after{transform:scaleX(1)}
-.svc-num{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;color:rgba(201,160,68,.12);line-height:1;display:block;margin-bottom:4px}
-.svc-icon{font-size:34px;margin-bottom:18px;display:block}
-.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--white);margin-bottom:12px;line-height:1.2}
-.svc-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8}
-.svc-list{list-style:none;margin-top:22px}
-.svc-list li{font-size:13px;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
-.svc-list li::before{content:'→';color:var(--gold);font-size:11px;flex-shrink:0}
+/* PRODUCT GRID */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prod-card{border:1px solid rgba(0,0,0,.07);border-radius:4px;overflow:hidden;background:var(--white);transition:all .4s var(--ease)}
+.prod-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.12);transform:translateY(-4px)}
+.prod-card-img{height:220px;position:relative;overflow:hidden}
+.prod-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+/* ↑ REPLACE: Change src in each product card image tag to your own product photos */
+.prod-card:hover .prod-card-img img{transform:scale(1.06)}
+.prod-card-cat{position:absolute;top:12px;left:12px;padding:4px 10px;background:var(--navy-dark);font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;border-radius:2px}
+.prod-card-body{padding:24px 22px}
+.prod-card-body h3{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--navy-dark);margin-bottom:8px;font-weight:600}
+.prod-card-body p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+.prod-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.ptag{padding:3px 10px;background:rgba(27,53,100,.07);border-radius:10px;font-size:11px;color:var(--navy);font-weight:500}
+.prod-card-link{font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.prod-card:hover .prod-card-link{gap:10px}
 
-/* WHY SOURCE — Image Split */
-#why{background:var(--off-white)}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:6px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)}
-.why-img{position:relative;min-height:520px;background-image:url('https://images.unsplash.com/photo-1536086050810-57de01ec6a70?w=900&q=80');background-size:cover;background-position:center}
-/* ↑ REPLACE: Change URL above to DMZ/Cheorwon landscape photo */
-.why-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,31,61,.7),rgba(15,31,61,.2))}
-.why-img-text{position:absolute;bottom:32px;left:32px;right:32px}
-.why-img-text h3{font-family:'Cormorant Garamond',serif;font-size:34px;font-style:italic;color:var(--white);line-height:1.2}
-.why-img-text p{font-size:13px;color:rgba(255,255,255,.7);margin-top:8px;line-height:1.7}
-.why-content{background:var(--navy-dark);padding:60px 48px;display:flex;flex-direction:column;justify-content:center}
-.why-points{display:flex;flex-direction:column;gap:28px;margin-top:28px}
-.why-pt{display:flex;gap:18px;align-items:flex-start}
-.why-pt-icon{width:44px;height:44px;background:rgba(201,160,68,.1);border:1px solid rgba(201,160,68,.25);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;margin-top:2px}
-.why-pt h4{font-size:14px;font-weight:600;color:var(--gold-light);letter-spacing:.5px;margin-bottom:5px}
-.why-pt p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
+/* INQUIRY BANNER */
+.inquiry-banner{background:var(--navy-dark);padding:52px 48px;border-radius:4px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:52px}
+.inquiry-banner h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:400}
+.inquiry-banner p{font-size:14px;color:rgba(255,255,255,.55);margin-top:6px}
+.inquiry-btns{display:flex;gap:12px;flex-shrink:0}
 
-/* PRODUCTS PREVIEW */
-#products-preview{background:var(--white)}
-.prod-prev-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px}
-.prod-prev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prod-prev-card{border:1px solid rgba(0,0,0,.07);border-radius:4px;overflow:hidden;transition:all .4s var(--ease);cursor:pointer;text-decoration:none;display:block}
-.prod-prev-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.12);transform:translateY(-5px)}
-.prod-prev-img{height:200px;position:relative;overflow:hidden}
-.prod-prev-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-/* ↑ REPLACE: Change src in each product card image to your own product photos */
-.prod-prev-card:hover .prod-prev-img img{transform:scale(1.05)}
-.prod-prev-badge{position:absolute;top:12px;left:12px;padding:4px 10px;background:var(--navy-dark);font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;border-radius:2px}
-.prod-prev-body{padding:22px 20px}
-.prod-prev-body h3{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy-dark);margin-bottom:8px;font-weight:600}
-.prod-prev-body p{font-size:13px;color:var(--text-mid);line-height:1.7}
-.prod-prev-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:gap .3s}
-.prod-prev-card:hover .prod-prev-link{gap:10px}
+/* CONTACT */
+#contact{background:var(--navy-dark);padding:88px 5%}
+.contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-left .tag{color:var(--gold)}
+.contact-left .h2{color:var(--white)}
+.contact-left .h2 em{color:var(--gold-light)}
+.contact-left p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;margin:16px 0 36px}
+.contact-detail{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.cd-icon{width:38px;height:38px;background:rgba(201,160,68,.1);border:1px solid rgba(201,160,68,.25);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px}
+.cd-label{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:600;display:block}
+.cd-val{font-size:14px;color:rgba(255,255,255,.8);display:block;margin-top:3px;line-height:1.5}
+.contact-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:40px}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:26px;font-weight:400}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.form-group label{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:2px;padding:11px 14px;font-size:14px;color:var(--white);font-family:'DM Sans',sans-serif;transition:border-color .3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.22)}
+.form-group select option{background:var(--navy)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{width:100%;padding:14px;background:var(--gold);color:var(--navy-dark);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .35s;margin-top:6px}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,160,68,.4)}
 
-/* CHEORWON STORY */
-#story{background:linear-gradient(135deg,var(--navy-dark),var(--navy))}
-.story-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center}
-.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.story-img{border-radius:4px;overflow:hidden}
-.story-img img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .5s}
-/* ↑ REPLACE: Change src in story images to your own Cheorwon/DMZ photos */
-.story-img:hover img{transform:scale(1.04)}
-.story-img-tall{grid-column:span 1;grid-row:span 2}
-.story-img-tall img{height:452px}
-.story-content .tag{color:var(--gold)}
-.story-content .tag::before{background:var(--gold)}
-.story-content h2{color:var(--white)}
-.story-content h2 em{color:var(--gold-light)}
-.story-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.story-fact{padding:8px 16px;border:1px solid rgba(201,160,68,.3);border-radius:20px;font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.5px}
-
-/* PROCESS */
-#process{background:var(--off-white)}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative}
-.process-steps::before{content:'';position:absolute;top:32px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,160,68,.2));z-index:0}
-.proc-step{text-align:center;padding:0 20px;position:relative;z-index:1}
-.proc-num{width:64px;height:64px;border-radius:50%;background:var(--navy-dark);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)}
-.proc-step h4{font-size:15px;font-weight:600;color:var(--navy-dark);margin-bottom:8px;letter-spacing:.3px}
-.proc-step p{font-size:13px;color:var(--text-mid);line-height:1.7}
-
-/* CERTIFICATIONS */
-#certs{background:var(--white);padding:60px 5%}
-.certs-inner{max-width:1200px;margin:0 auto;text-align:center}
-.certs-title{font-size:11px;color:#aaa;letter-spacing:3px;text-transform:uppercase;margin-bottom:36px}
-.certs-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
-.cert-badge{padding:12px 24px;border:1px solid rgba(0,0,0,.08);border-radius:2px;background:var(--off-white);font-size:13px;color:var(--text-mid);font-weight:500;letter-spacing:.5px;transition:all .3s}
-.cert-badge:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
-
-/* CONTACT CTA */
-#cta{background:var(--navy-dark);padding:96px 5%;position:relative;overflow:hidden;text-align:center}
-#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(27,53,100,.5),transparent);pointer-events:none}
-.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.cta-inner .tag{justify-content:center}
-.cta-inner .tag::before{display:none}
-.cta-inner h2{color:var(--white);margin-bottom:20px}
-.cta-inner h2 em{color:var(--gold-light)}
-.cta-inner p{color:rgba(255,255,255,.6);font-size:16px;line-height:1.8;margin-bottom:40px}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.cta-details{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:28px}
-.cta-det{font-size:13px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px}
-.cta-det::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.6}
-
-/* FOOTER */
 footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.06);padding:36px 5%}
 .footer-row{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:32px;opacity:.7}
 .footer-links{display:flex;gap:20px;list-style:none}
 .footer-links a{font-size:11px;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
 .footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.5px}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.2)}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .nav-links{display:none}
-  .intro-grid,.why-grid,.story-inner,.prod-prev-grid{grid-template-columns:1fr}
-  .services-grid,.stats-row{grid-template-columns:1fr 1fr}
-  .process-steps{grid-template-columns:1fr 1fr;gap:32px}
-  .process-steps::before{display:none}
-  .why-img{min-height:280px}
-  .story-imgs{grid-template-columns:1fr}
-  .story-img-tall img{height:220px}
-  .prod-prev-hdr{flex-direction:column;align-items:flex-start;gap:16px}
+  .featured-prod,.contact-grid,.form-row{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .inquiry-banner{flex-direction:column;text-align:center}
+  .feat-img{height:300px}
 }
+@media(max-width:600px){.prod-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
+<nav>
   <a href="index.html" class="nav-logo">
     <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAEJA64DASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAYBAwQFBwII/8QAWhAAAgEDAQMECwsHBwsEAQUAAAECAwQRBQYhMRJBUWEHExQiUlRxgZGx0QgWIzJCc5KTocHhFTM0NXKU0hdTVmKCsvAkNjdDRFV0osLi8Rglg4QnRUZjZKP/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAwQFAgEG/8QANxEAAgICAAQEBAUCBgIDAAAAAAECAwQREiExUQUTFEEVMjNSImFxgaGR4SM0QrHB8GLRNUPx/9oADAMBAAIRAxEAPwD4yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfsrSveV1Rt4OUn6F5SR2eysY4ld3DlzuMN3l3ktdM7PlRHZdCv5mRUE7joGlRWO5m/LN+0tXGzem1F8HCdJ9Km368lj0NuvYgWbW37kJBudV2eu7Om69OSr0lxaWJJdODTFWcJQepIswnGa3FgAHB0AAAAAAAC/Y2le9uFQoQ5Unx6EulnqTb0jxvXNlgEot9lI4/yi6lnduhHh52NQ2btLawr3Ebis5U4OSTxh4XkJ3i2pbaIfU1b1si4AK5OAAAAAAAZ9jpF/eb6VBqG7v596jaUdlK8lmrdU4PojHlfeiWFNk/lRFK6uHVkcBLKeylBfnLyo/wBmKR796tn4xX+z2Eqw7X7Eby6l7kQBL/erZ+MXHpj7B71bPxiv6Y+wejt7HnrKu5EAS73q2fjNf7PYV96tn4zX+z2D0dvY99ZV3IgCX+9W08YuPs9hha3oFvYadO5p1qspRaWJYxveDmWLZFNtdDqOTXJpJ9SOgy9JoULm/p0Lmq6VOe7lLp5iSe9Wz8Zr/Z7Dmuidi3E6suhW9SZEAS57K2nNc1/sMa52VnvdtcqXQpxx9qO3iWr2OFlVP3I0C9d21e0rujcU3Ca5nz9ZZKzWiwnsAAAAAAAAAAG703Z26uafba0lbwayk1mT83NxO4QlN6ijmc4wW5M0gJbHZW1xvuq2fIj171bPxqt9hN6O7sQerq7kQBuNodMstNUIUripUrS3uMsbl5jTkE4OD4WTwmpraAAOToAGystE1G6SlGj2uD+VUeDqMJSeoo5lJRW2zWgk9vsrvTr3Tx0QibCls5pkI4lTqTa53N+pFmOFa+q0QSy6l77IQCex0PTFwtYvynmpoWlz/wBmx5Hg69BZ3Rx62sggJpX2a02ovg+20n1Sz68mvudlKyy7e5hPoU1j7SOWJbH2O45dUvcjYMq90+8s3/lFCcV4WMr0mKV2mnplhNNbQAB4egAAAAAAGx0/Rr68w4UuRDw57kbi32Ugv0i7b3cIRx6yaGPZPoiGd9cOrIsCb09ndMjFZpym+lzZejo2mxWO5KT62TrAs7ohedX+ZAgTueh6ZPjbRj1JtGNcbM6fU30p1aL6E+UvtPJYNi6aYWbUyGg39zsxdQWaNenV3cGnFmmu7W4tKnIuKM6cubK3PyPnK86pw+ZFiFsJ/KyyAXra1uLmXJt6M6j/AKq3I4Sb5I7b11LIN1b7N39RJ1HSpJ80m216DMhso/l3y8ip/iTLGtf+khlk1R6yIyCWx2Vtcd9c1m+pJFVstZ89xX9K9h2sO5+xw8ype5EQS73q2fjFf7PYPetZ+MV/SvYPR29h6yruREEvWytn4xX+z2D3q2XjFf0x9g9Hb2HrKu5EAS/3q2XjNx6Y+we9Wz8Zr/Z7B6O3sPWVdyIAl/vVsvGa/wBnsD2Vs/Ga/wBnsHoruw9ZV3IgCVVNlaf+ru5r9qOTHrbK3CXwN1Tm+iUXH2nLxbV7Hayqn7kdBl32nXtk/wDKKEorwuK9JiEDTT0yZNNbQAB4egAAAAAAFYpyaUU23wSNrZ7P6lcRUu1KlFrKdR4z5jqMJTeorZzKcYLcmakEmhsnUwnO9in0KGfvL8dlLfk99dVW+pJE6xLn7ELyql7kSBLverZ+M1/s9hX3q2fjFf0x9h76O3sc+sq7kQBL/erZ+MV/TH2D3q2fjNf7PYPR29h6yruRAEu96tp4zX+we9W18Zr/AGewejt7D1lXciINltBp9PTbyNCnUnNOClmS637DWleUXBuLLEZKS4kAAcnQAAAPdGnOrVjSprMpPCR4N5sbbqrqcqzWVRjldTe7PrO64cc1HucWT4IuRJNGsKen20aUEnN4c5c7fsM98Q1jgDfhFRSilyRhTm5vbA3nmU4Q+NKMfK8HpNNdJ1s8K78Ncz5mQ3avSla1e66EMUZvvklui/xJlks3lvTu7Wpb1V3tSOPIQZFKthr3JqLnXJP2Oagu3dCpbXNShVTUoPD3faWjCa0baewAAAAAATPY2hGnpbrKK5dWTy+pbsf46yGE72W/Udv/AGv7zLmDFOz9ipmtqvkbTL5zD1v9T3fzMvUZhha3+qLv5mXqNWz5GZdb/GjnoAPnjfABk6dZ1r66jQop5fF43RXSepNvSPG0ltldOsbi/r9qt4Z8KT4R8pL9K0C0s0pzXb6y+VJbk+pGZp1lSsbaNCity4vnk+kyebia1GJGC3LmzKvypTeo8kEksJbkuZFSnOVLhUALdSvRp/nKtOPlkkWu77Lxqj9NHnHHue8DMk8lh31l41R+mh3dZeNUPpo8449w4SfsXwWO7rPxuh9NFO7rLxqj9NHvHHueeXLsZKfSana+pGOiVIN4c5RUV070zKrapp9GDlO7pYXMpZb9G9kS2g1aWpVoqCcKEPip8W+llXKviq3HfNlrFpm5ptckaomOy+rd1U+5bifw8V3rfyl7SHHujUnRqxq05OM4vKa5jMptdUto0rqlbHTOmbiqZr9F1GnqNqpppVV+cj0P2MzzdhNSXEjFlFxlpms2j06Go22YpRr013kunpXkILOEoTcJxcZReGnzHTsJvfv8pH9qtHVxTd7aw+Fiu/ivlLp8q+0pZmNxfjiXMTI4XwSIeADKNMAAAAG22d0p6hX7ZVTVvTffPwn0HUIOcuFHM5qC4mZuymkqpNXtzDvF+ai1xfT7CWNro3FuEI04qMUlFbkke87kblFSqjpGJdc7ZbY4mJq19SsLOVabXKxiEc/GZdu7ija28q9aSjCK3kD1fUKuoXTq1G1BboR8FEeVkeUtLqSYtHmvb6GPc1qlxXnWrScpyeWy2AYre+bNlLXJAy9N0+4v63a6Md3ypvgi/oelVdSr88KEfjz+5dZNrW2o2tGNGjBRhFcPxLeNiu3m+hVyMlVcl1MLSdFtLFKTSrVsb5yW7hzI2mSiKria0IRgtRWkZM7JTe5PYGBlJZbwjEralYUsqpd0U1zcrf8AYdSlGK5hRlLoZZTnNY9oNJT/AEl+anL2HqnrulzeFdxWemLS+0i86vujvyLPtNkMlmhc21dN0a9OpjwZIvEsWn0OHFo8zhGcXGUVKL4pmg1fZujVjKrZLtdTwPkv2EhKpkdlULFqSO67pVvaZzKtTnSqypVIuM4vDT5jwSPbihCNzRuIpKVRNS68c/rI4YlsHXNxZs1T44KQAMnTrKvfXMaFGOW+L5orpZwk29I7bSW2UsLO4vq6o28HJ875l5SYaVs/a2UVUqYr11v5T4LyIydLsKVhQ7TSW975SfGTM3L6cmtj4kYLcltmVflym9R5IpyUty4BMrzlJuMI8qUoxS52y8UttgGBcazpdHdK7i30Q771IxJ7S6epYiqsl08kgd9a5OSJVRY1tRZu8BrBqaW0emSXfVZwfQ4P7jYW95a3Mc0LinU8kk2dRtrl0ezyVNkeq0X44xniWryhRuqLpV6cakHzNb15z2txXJ20nyZxGTXNGntdnNPo3Eqk1KrHOYwk90fabeEYU4KFOEYRXBJYSK53hnMKoQ+VaO52yn8z2UAeEst4XSzzKpTjvdSEV1yOtnGme0shlmV5aR+Nc0l/bR5d9Z+N0Ppo8449z3gl2MjBQx3fWfjdH6aHd1l43R+mhxx7jgl2MnJQx+7rLxqj9NDu6y8ao/TQ449xwS7GQDH7tsvG6P00O7bLxuj9NDjj3PeCXYyD0YyvrLxqj9NFe77J/wC1UX/aQ449xwS7F9jLPEKtKazCpGS6nkuHSezjWjzOCnFxkk4vimRvXdnU4SubCOGt8qfT5CTIrypcxHbTG2OpIlqtlW9pnMGmnhrDRQ321um9z3Cu6cMU6r77C3KX4mhMKyt1ycWbdc1ZFSQABwdg2ei6Nc6lLlL4OiuM2uPUj1s9pcr+45dSMu0Q3yfhPoJtRiqdONOKUYxWEkuBdxsXzPxS6FPJyfL/AAx6mLp+k2lisUaacuect8n/AI6DNSwVBqRjGC1EzJSlLmxzB85TKXFpFmd1bU3idxSi+uSPW0jlJvoXQY/d1l41R+mO7rLxqj9NDjj3PeCXYyD0Yvd1n41R+mg76z8ao/TR7xx7nnly7GSsLeV3YMVX9l41S+kjF1DXLC2pNxrQrT5oQef/AAcythFbb5HsapyekjQbavOrxXRSXrZoy/fXNS7up3FX403w6CwYVs+ObkblUOCCiAARkgAAAJTsNHFO5n0uK9ZFiW7Dr/Iq7/8A5PuRZxF/jIr5X0mSIAo+BuGMc91m4qXOpV6lRt4m4pdCW5I2+yGpShX7hqybjPfTy+D6DRXn6ZW+cl6y3TnKnUjUg8Si8p9ZgQtlCzjNyVSnXwHTQuJj6dcwvLOlcQa7+Kb6nz/aZBuxlxLaMSS4XpkY21s21TvoR3LvJ9PU/WRc6VdUYXNvUoVFmM48l9WfYc7vradpd1Leou+g8eVczMrOq4Z8S6M08K3jhwv2LIAKJdAAABO9l/1Hb+SX95kEJ3sv+o7f+1/eZdwPqP8AQp530/3Nm95h61+p7v5qXqMxGHrP6nvPmpeo1LPkZl1fOjnoAPnj6Aqk20kstk72e09WFlHMfhZrNR+peYjOytornVIzksworlvy83+OonKeTSwad7m/2M/Nt/0IArg1m0OpLTrPMMOtUyoL7zQnOMIuUuiKEIObUY9Txres0dOjyIpVa74QT+L5SJ32rX9232yvKMfBh3q+ww6k51Kkpzk5Sk8tvnPJi3ZM7H2RsVY8a1+YABXJwAAAAAAAAAAADI0+7q2N1G4oveuK6V0E+0+9o31tGtQeU/jLnT6Gc5NhoepT066Ut8qUt04/eustYuR5T0+jK2TR5q2upPyjWVg80KsK9KNWnJShJZTR7W5m0uZj60RPazSe0t39BJQk/hIrmb5/ORw6bXiqtKVOcVKElhp86IHrumT0+5aSbozeYS+59Zk5mPwPjj0NTEv4lwy6muAL1nb1bq4hQox5U5P0dZSS3yRdb0XdKsat/dKlTWIrfOXQifWdCna2sLelFRhFcOvnLOlWFHTrSNGGJTe+cvCZlGzjY/lR2+rMfJyPMel0BSpOFKnKpUkowistvmR6W5Nt7iIbU6v3TN2dvL4GL79r5TJLrlTDfuRUVO2aS6GFrupz1G53NxoQ3Qj9/lNaAYcpOb2zbjFRWkC/YWtS8uoW9Jb5Pe+hdJYJfsfY9ptHdzWKlX4uV8kkoq82eji+zy4ORuLC2haWkLeksRj9r5zIC4g3Yx0tIw2+J7ZTgaTWdoKNo5UbbFastz8GJj7V6vKk3ZW02p/6ySfDqRFDPyctp8MC/jYia4pmVfaheXkm7ivKS8FborzGKAZrbb2zRSSWkAAeHpVNp5TwzbaZr15aYhUk69Lom968jNQDqE5Qe4s5lCM1qSOg6dqtnfQzSqqM+eEt0jMqVIU4OVSUYxW9tvCRzNNp5Twz3Ur1qkVGpWqTS4KUmy9HPklzXMpSwY75PkbLabUYX94lSbdKkmovpfOzUgFGc3OTky7CChFRR6pU51akacE5Sk8JdZPtEsaen2UaUUu2S3zn0v2Gj2MsFUqTvqiTjDvYZ6edkp4GlhU6XmMzs25t8CK5bK8xRGm2l1d2NPtFDHb5rOfAXSXbLFXHikUq63ZLhRXXdbp2GaNHFS4xw5o+X2ERvby5vKjncVZTfRncvMWJScpOUm228tvnKGLdkTtfPobVNEKly6gAEBMC5bU6tavClRTdSTxFLpM7QtLnqVeS5ThShjlS5/IiVabotpYV+3U1Nz5OE5POCzTjTs5+xXtyIV8vcytPoVLezp0atWVWcV30pPiXa1SnRg6lWpGEFxcnhGn1jaCjaOVG3SrVlubz3sX19PkIrfX11e1OXc1pT6FzLyIvW5cKlwx5spV4srfxS5Ik97tNaUm429OVdrn+LH2mnudo9SrZUJwox6Ixy/SzL0nZyFaEK11cJxksqNN83lJBa6bY2uO57eCfDL3v0sjUci7m3pHblj1cktsg1xU1CcOXXncuDfGblhmKdHvbRXlnO2l8WSwuroOeXFKdCvOjUWJwk4sq5FDqabe9lnHvVqaS1otgArFkAAAAAAAAAAAArFuLTi2muDRvNE16vb1YUrubqUG8cp/Gj155zRA7hZKD3FnE64zWpI6fFxklKLynwHA0+yVzKvpMYzbbpScM54rivWbdM36p8cVLuYdkOCTj2MXWKCu9Nr0Gt7i3HPM1znOzqCSaaaymc21CChf3EFwVSWPJkzvEI84yL2BPalEsF+wtp3d3Tt6fGbxnoXSWCU7FWmKdS8kt8nyIeTn/AMdRTor8yaiXLrPLg5G/s6FO1tadvSioxgsLr6y8kyqXOVRvRjwrRhybb2zy8JZbwlxZHNZ2kVOcqFilOSeHUfBeQ87XarKD7goScX/rZJ/YRYzsrKafBD92aGNiprimZF1eXV1JuvXnPPM3u9BjgGc23zZoJJckAAeHoAAAAAAAAAAAAAAAJdsP+g1/nfuRESXbD/oFf537kWsP6yK+X9JkhKPgVfEozbMVHNrz9LrfOS9ZaLt5+l1vnJestHzb6n0K6G/2Q1DtFz3HVlilVeY55pdHnJgcxjJxkpReJJ5T6DoGiXsb+whWTXLS5M10P/HrNLBt2uBmdm1afGjNW4j+2Ondtod3U4vl01ifXHp8xIsHmpCFSEqc0pRksNPnLttasg4sp0zdc00cxBmaxZSsL+pbyzyc5g+mPMYZgSi4vTN2LUltAAHh6Cd7L/qO38/95kEJ3stv0S38/wDeZdwPqP8AQpZ30/3NoYet/qe7+al6jNwYet4/I9381L1GrZ8jMyr50c7AB86fQEy2MtlT0yVw8cqrPj1LmN4smHodPtelW8eTjEFny43mab+PHgrSMK+XFY2Ubwm+YgOv3kr3Uqk85hB8iC6kTXVa3c+nXFXPfRpvk+XG450UvELHyiXMGC5yAAM00QAAAAAAAAAAAAAAAAADd7M6s7OqrWtPFCb3N/IZNE8pYe59BzAlOyusJxjYXUt63UpPnXgs0cPJ4fwS6exQy8ff44/uSYsX9tRvbWVCvHlRfPzp9PmMjAwaUoqS0zOTcXtHO9R0+vZ3nc8ouXKfwbXykS7QtJp6fQUpYlXmu/eOHUbOdKnKcZypxco/Fk1vRXeytViRrm5f9RYuy5TiolAVwjTbTasrKl3PQ/SKi4+Cuknsmq4uUvYr1wdklFGJtPrThyrK0l33CpNc3UusipVtttttt722UMO62VsuJm3VVGqPCgACIlL1lQdzd0qEc5nJLcdGo04UqcacFiMVhLqIZshSVTV1Nr83ByXl4feTVmrgQ1FyMvPnzUSpg65e9wafOssct97BPnkZq4ET23uXK6o2qbxCPKa62T5NjrrbRBjV+ZYkyP1JyqTlObzKTy2eQDDNsAAAAAAAAAAAAAGTpdLt+o29LGeVUWV1c56lt6PG9LZO9LtY2lhRormiuVjpf4mVgrFJLHUVZ9DGPDHR8/OXFLbLF7cQtLSpcT4Qi3g55eXFS6uZ3FV5nN5ZKNt7jkWlGhF76km35F+JHtEowr6rb0qiTi5ZafPhZ+4zM2bnYoL2NPDgoVub9zzR06+rUXWp2tWVNb8qP+MmK002mmmuKZ0uKcV3u5Ef2gjG1ru4o6bCtOpvlNptRxjm+88tw+CPFs9qy3OWtEctLG8u3/k9vUmulLd6TO/JNC2f/uN9TpPnhDvpGPdavqFwnGVxKEG88mn3q+wwHveWVdwj0Wyzqb68iWbN32n0qrsrWNVObzy5475m8u7qla2869V97AiGnRVjo9bUJrFSq+1UPvf+OgtbO14RvHbV38FcR7XLy83s85cryXGKh3/gqWYylJz7fya+5qutcVKzWHUm5NeV5LZevaE7W6qW8+MJY8vWWSg+vMvLpyJPsbfNylY1HwTlTePSiUcDnGm3Dtb+jXTwoTWfJz/YdG4xT6Vk1cGxyg49jKza1GfEvcJvG4iG2dr2u8p3SW6ssS8q/D1EvS3Gn2xpKpo7k/jU5qS9X3k2XDjqf5EeJPhsX5kJABhm0AAAAAAAAAAAAACsIynJRinKTeElzsAlmxEX3BXfM6u70IkKWEYOhWfcWmU6M0u2Pvp+V833Geb+PFwrSZhXyUrG0FxOdau09TuWv5xnQ5y5EJSfMmzm91U7bdVaq4Tm5ellTxB8oot4C5yZaOi6Vbq10+jQWO9jh46en0kC0yn23Ubem+DqRz5M7zo0MYWOHUc+Hw5yke58+kSpj6lcK0sqtxJ/Ei2l0v8A8mTjeR/batyNPp0VLDqT3rqX+EXrp8Fba9inRHjmokSq1J1asqk3mUnlvrPAB8+boAAAAAAAAAAAAAAAAAAAAAJdsR+gV/nfuRESXbEL/IK3zv3Is4f1kVsv6TJCUZUo+BuGKupza8/S63zkvWWi7efpdb5yXrLR82+p9EugNxstqPcd72qpLFGs0n1PmZpwewm4SUkeTgpxcWdPyDV7M3rvdOjynmpS7yT+82uD6CuanFSXuYNkHCTi/Y0e19j3Rp6uIRzUo7/7PP7fMQs6fJKUXFrKZz/XbF2GoTpYfa331N9TM3Op0+Ne5o4Nu1wMwAAZ5fBO9lX/AOx0P7XrZBCd7LfqOh5Jf3mXsD6j/QpZ30/3Npkw9b/U9381L1Gbgwtb/U9381L1GnZ8jMyv50c8AKx+MvKfPH0B0yiuTSglwUcbj03zHil+biufC9R7wfRrofOt8xJKSw1ldZ4cIc0I+g94HMe8KZ7s8KEPAh9FBU4eBH6J7wVwecKPOJnjkU/Aj6EORDwI+g9YKtHvDEcTPHIh4EfQFCn4EPonoHnChtnntdL+bj9FFO10/Aj6D3xG8cKPdsje3EIxtLeUUl37XDqIoSPba6jO4pWsZZdNcqXU3wI4YmU07Xo2sZNVLYABXJwAAAVi3FqUW01vTXMUABNNmtYV7TVtWaVeC4+Elz+U3eSH7I6bUrXKvZqUaVN9408cqRMEbeJOcq9yMbKjCNmogFcDBaKxr9Z1Kjp1s5zeakt0IJ72/YQS6r1LmvOtVeZyeWS7arS+66PdNFPt1NcPCj0eVEMe54Zj5sp8en0NXCjBQ2uoABSLoAABJNhop1rqT8GKXpZKsEY2F+Nc/wBn7yU4NrCX+CjGzH/isoiBbSz7Zrdy1wUlFeZIn2457rycdYuk+PLZH4h8i/UlwPnf6GCADJNQAAAAAAAAAAAAG02WjytboPwcv7Gas3exlPl6q543Qpvf1ktK3ZFfmR3PVbZNE9wCW4rjefQGAyHbb1OVqFKnvxGnn0v8DRU5yp1I1IScZReU+hm621WNWj80vWzRmDkPdrN3HX+EiWaPtFK5uKNrcUoxnPd2xPdnG7cae61TU6Oo1pSuGpqTTjjvcdSfMa2nOVOpGpB4lFpp9DRtNpYxqV6N/TWIXNNSe/O9LedO6c4c30PFVCEuS6nt6nYXmfyhp8VN5+FoPkvPkPNLSra8rKNhf05JvfCqnGSXo3moNxYJ2GkVb94VWs+10enHO/8AHQcRlxv8R1KPCvwnraalXjVp0oUJxtKEFGEsZW/nz/jgaZNppp4a4MzbLVr61eIVnOPgVO+Rl91aRffpdrK0qvjUo/F8uDyXDN7T0I8UFprY1aKv9No6pTS5cPg6+N2/mf8AjpRpicaBplvbWc/hO6IXGJPMd2Obd5yxtLpNpLT6lxb0oU6tJcrvVjK588xZsxZuHmf1K8MmClwEOOi6XVdbTrapLe5U4t+g50dA0FNaPa/Nr8D3w9/ja/I8zl+BMz09xha9FT0i6ys/BNr0bjMXAxdZ/VVy+btTNOxbizNqepo52AD50+gBn0NH1KtDlwtZ4fhNL1m82Q0ynGl3bcU1KcvzSa4LpJLhPmwX6MLjipSetlC/M4JcMUQP8gar4t/zoPQNVX+y/wDMieYG8segr7sh9dZ2RAvyDqniz+kh+QtU8Wf0kT3JQegr7sLPn2IH+QtU8W/5kVjoGqSf6Ol5ZInYwPQV92e+un2IZS2Y1KTXLdGmuduefUjd6RoNtYzVacu3VlwbW6PkRucDBLXiVwe+rIbMuya10R5K4HMW7mtSt6Eq1aooU4Le2WG9cyulvka3ai+jaabOmn8LWXJiurnfoIMZusX09QvZVpNqCbVOPQjCMPJu82e10NvHq8qGn1Njs1Hla3bLrb+xk9jwIJsx+uaL6M4J3HmL2B8jKOe/xorko4xl8aKeOlZPWBgvlE8ciHgQ9A5FPwI+g94KPiecMT3iZ55FPwI+hDkU/Aj6EegecKHEzzyKf83D0DtdPwIeg9YGBwocTPPIh4EPQhyIfzcPonrBXA4UOJnjkQ/m4fRINtSktaq4SW5cPITt4SznCOe65cRutVr1oPMHLEfMUc/SgkXsHbmzCABlGoAAAAAACXbD/oFb537kREl2xH6BW+d+5FrD+sivl/SZIXxKPnKlHwNsxF1ObXn6XW+cl6y0Xbz9LrfOS9ZaPm31Pol0AAPD02uzF/3FqMVJ/BVe8l1dDJ1xXE5gTfZW/wC69PVOcs1aPevPOub2Gjg3f/W/2M/Np3+Nfubg1O1Fh3bp7nCOatHMo4XHpRtsDqZo2QVkXF+5n1zcJKS6o5gDb7UWHcd+6kFilWzKPU+dGoPn5wcJOLN6ElOKkgTzZb9R2/n/ALzIGTzZX9R2/n9bLnh/1H+hVzvp/ubTJha3+p7v5qXqMwwtbWNHu/mpeo1LPkZl1/OjnoAPnT6A6XQmqlKE0000i7wMDZ+oqujW81n4qWetbmZx9FCXFFNHz848MmmYuq3krKxqXEaXbHHD5Oceo0Pvtnz2MfrfwJFfUVcWdag3jlwkjm8ouMnGSw08NFHMtsrkuF8mXcOuuyL4l0JN77Z+Ix+s/Ap77Z+Ix+s/AjIKfqrvuLfpaftJN77JeIx+t/Ae+yfiMfrPwIyB6q77h6Wn7STe+yfiMfrPwHvsn4jH6z8CMgequ+4elq+0k3vtl4hH6z8CxebUXlWLjQpQoZWG88p+Y0APHk2ta4j1Y1Se+ErOUpzc5ycpN5bfOUAICcAAAAAAGz0HS6moXHKlFqhB9/Lp6keNE02pqNxjfGjDfOX3LrJ3b0qVChCjRpqEIrCRcxcZ2Pil0KmTkeWuGPUrRpxpU404RUYRWElzFzJQ81Jxp05TnJRjFZbfMbC5Iydbez1zAh95tFWeqKrb/o8O95D+WukllpXp3NvCvSkpQnHKZFVfC1tR9iWyiVaTkup7aTW8im1mkOjN39vH4OX5yKXB9PkJZgpJKUHFpSi+KYupV0dM8ptdUto5iDcbR6S7Gs69FZt5vdu+K+g05hzg4S4WbcJqceJAAHB0SPYaoo3NzTfGUU15s+0lbZBdl6/aNZpZaSnmDb6ycmxgy3XrsZGdHVm+56XEg21lKVPWqsnwqJSXkxj7icoju21ry7eldxW+m+TLdzM6zYOVW+x5hzUbOfvyIkADFNgAAAAAAAAAAAAEv2Ltu12NS5ksOrLd5F+LZGtLs5317Tt4J4bzJ9C5zoNCnClRhTglGMI4WOZF/Bq4pcb9ijm28MeBe5dXAZ3lAaxlET25ppXdvVXyoNeh/iRwm211pK40x1YrMqL5XXjnISYmZBxtf5m1iSUql+QNvb/5Zs9Wo8Z2su2Lcviv/DNQbjZKFaeqYhHNJwcauVlJNENXOWu5Lbyjvsau3pTr14UaazKcsIztoLhVLqFtTfwNtFU4rrXH/HUbujolXS6V1d0v8pqqDVGMY711+XHR1mpp6VCjBV9WuFbqW9U1vnL2EjpnCOmupGrYye0zUwjKclGEXKT4JLLZtaGkRpU1X1SurWm+EOM5ebmPNXVY0Y9q02hG3hjHLazN+c11WpUqzc6s5Tk+Lk8sj/DH8/8AYk/FL8iXaVrumqKtsyoQglGm6nOl183nLe0ms2jsp2trVVWdRclyjwS5/YRIEzy7HDgIli1qfEDo2nUnSsaNJ8YQin6CDaJau71ShRxmPK5Ut3Mt50BblhbkWPD4fNIr58lyiVi8Mwdoqip6Nct/KhyVv6TORotta/I06FBPfUnvXUuf0l2+XDXJ/kU6I8ViX5kOKpZaXSUPUPjx8pgG6dItoRhShGCxFRSRdyW6C7yPkRcwfRx6Hz0uoCNXtRdV7TTe2W9Ttc+WlnC9hFnruqv/AGyX0Y+wrW5capcLXMsVYsrI8SZPcFSA/lzVfHJ/RXsH5c1Xxyf0V7CP4hDsyX0M+6J8GQKOu6qpJu7lJJ8HFb/sJpp13TvbSncU8Ykt66H0E9GTC56RDdjyqSbMnO481KkIQc6klGK4tvCRXBbubaF1bzoVFmE4tNY6SeW9ciutb5mr1HaGxtouNGfdFTmUHu9JFdU1K51CpmtLEF8WC4ItajaVLG8qW1Vb4vc+lczMcw7siyx6ly/I26aK4LcQACuTmy2ZaWt2yfBtr7GTxcxznTanatQt6jeFGpFt9Wd50WOGk1vTRq+Hv8LX5mXnr8SZ7yanX9XnpcqSVuqvbMt5ljHDqNssZNHtpQdXS1Vit9KeXu5nuLWQ5Rrbj1RWx4xdiUujMH32z8RX1v4D32T8Rj9b+BGQZHqrvuNX0tP2km99k/EY/W/gPfbPxGP1r9hGQPVXfcPS1faSf32z8Qj9Z+A99s/EI/WfgRgD1V33D0tP2kn99s/EI/WfgU99k/EY/WfgRkD1V33D0tP2m21LXr29g6Xe0ab4xhxa6GzUgEM5ym9yeyaMIwWooAA5OgAAAAAAS7Yj9Ar/ADv3IiJLth/0Cv8AO/cizh/WRWy/pMkIANwxvc5refpdb5yXrLRdvP0ut85L1lo+bfU+hXQAA8PQZui3rsdQp1svkZxNdRhA9jJxe0eSipLTOnxkpRUovKe9A0GyGo9vt+4qr7+ku8fTHo/x1G/N+qxWQUkYVlbhNxZga7ZK/wBOnSS7+PfU3/W/EgDTTaaw1xOnZIVtXpztL3uiC+CrvPklzopZ9PJTRcwbesGaUnmy36joeSXrZAyebLfqKh/a9bIvD/qP9CXOW6/3NoYWuPOj3fzUjMfEwtc/U9381L1GnZ8jMyv50c9AB88fQEu2KueVZVbZt5pz5S6MP8SQkA0C8VlqUKkvzcu9n5Hzk/4pNcHwNnCs4q9e6MfMrcbN+zK43EH2rsXa6i6sV8HX75dUudE3MbVLKlqFo6FVYXGMlxT6STJp82Gvf2I8a7yp8+hzkGXqlhX0+4dKtHc/izXCSMQw2nF6ZtpqS2gADw9AAAAAAAAAAAABmaTp9fUbpUaSwuM5vhFFzSNKudRqfBxcaS+NUa3eRdLJrptjSsLdUaCwudvjJ9LLePjOx7fQrZGQq1pdT1YWNGxt40KC3JZbfGT6TJwUyOs2YpRWkY8pOT2ysmkm20kuLZDdp9Y7qm7S2l8DF99JfLfsMnanWU1OwtmnzVJp/YiMGZl5W/wQNLFxtfjkDcbN6s7Ct2ms8283v/qvpNOChCbhLiRdnBTjws6dGUZx5UXlMqRLZnWnRcLK6l8HnEJv5PU+oliaZu03RtjtGJdVKqWmeLihTuaEqNaPKhJYafOQPW9Nqabdum8ulLfTl0rofWdAyYmrWVPULOVCphZ3xljfFojycfzY7XVHeNf5UtPoc7BkX9pWsrmVvWjiUeD5mulGOYrTT0zZTTW0eqU5U6kakd0otNeVHRrG4jdWlOvF5U4p/ZvObkl2O1HkydhUe6WXTzzPoLeFbwT4X7lTMq44cS9iVFu4oU7ijOjVScJpp+cuDBsNb5Myd65o5zqVnUsbudvU5viy8JczMY6BrWmUdSt1GUu11Ib4TS9K8hB7+zuLKs6deDXQ+Z+QxMjHlVL8jax71bH8zHABWLAAAAAAAPVKnOrUjTpxcpyeElzl2ytLi8rKlb03OXO+ZdbZMND0SjYYrVH2yvjjzLPQT048rXy6EN18alz6lzQNMjp9tvxKvNJzl0dRtVwKIG3CChFRXRGLOUrHxPqVDZrL3WLe11ClaSw5TffPO6HQbFb1nORGcZNpPoJVuKTfuVlhxcZLMWsM5/rlhKwvpU+S1Tlvg8c3QdAMTVrCjqNr2mosNb4TXGLIMqjzY8uqJsa/ypc+jOdks2JdN2VaKa7YqmWufGFgj2p2FxYV+1V4vD+LLmkiza3Ne1qqrb1JU59KMqmbps210NS2Cur0n1Ok1JOEHNtKMd7bOb3lV1rqrVcpS5U2028vGTJvNX1C7o9qrXEnDniljPlMAlyshXNaRHjUOre2AAVC0ADe7OaNK5qRubmDVvHfFP5b5vMdwhKcuGJxOahHiZstkdPdC2d3UjipV+KmuEeb0+w3w4LC3dRVLJu1VquCijDtsdknJ+5VYXkIVtfd90an2qLzGiuT53xJPrd9CwsZ1W+/e6C6WQCpOU5ynN5lJ5b6WUs+3/Qi7g1vfGzyeofHj5TyeofHj5TMNI6VQ3U4/so95LdH83H9lFw+jXQ+dfU0m2X6p/tohZNdsv1Ov20QoyM76pr4X0wACmWwb7Y6/VvdytaksQq/Fy9yl+JoSsW4yUotpp5TXMd1zdclJHFkFZFxZ09McprgarZ7UVqFmuU8Vqe6a6eh+c2hv1zU4qS6MwpVuEnF9TR7Wae7u27ppxzWpLO5b5R5yGHUEk9zWV1kI2o0vuC77bSXwFV5X9V9HsM/Oo1/iL9zQwrv9D/Y0wAM00AdE0e5V1ptCvnLcUpeVfic7JLsZe4lOxm+PfU/LzouYVnDZp+5UzK+Kva9iVplm6oxuLepRmsxmmmXFngel1o2GtmOnpnNby3na3VS3qLvoPHl6yyTnaLRo6hDt1F8i4gsLPCS6GQirTnSqSp1IuM4vDT5jCvolVLT6G5RdG2PLqeQAQE4AAAAAAAAAAAAAAAAAAJfsP8AoFf537kRAl2w36BX+d+5FnD+sivl/SZIWBko92W9yRuGKnzObXn6XW+cl6y0Xbtp3VVrg5y9ZaPm31PoV0AAPD0AAAytKu5WN/TuFwTxJdK5zodOcatONSDTjJZT6UcyJZsfqSnR7hqy7+GXTzzroL+Dcoy4X7lLMqckpr2JGYmqWVPULOdvPc3vjLHBoyypqSiprTMyMnF7RBJaBqirdrVums45fKWPKTLTLbuSypW+U+RHDfS//JkZGSCnGhS20TW5MrUkyuDWbT1O16LcNcJJR9LNkR3be5jG1o2ql385cqS6l+J1ky4am/yOcePFYl+ZEgAYJuAmWymqK5tu5K0vhqa71v5UfwIae6FWpQrRq0pOM4vKaJqLnVLaIrqlbHR0zBXHWavQ9XoX9GMHNRuEu+g+frRtMm5XOM1xRfIxZwcXwyWmWLu0t7un2u5pqpDycCPX+yzy5WVfd4FT2knyDi3HhZzkjqq6dfJMgdbQtUpZzauSXPFplj8l6h4pV9B0Mc/ArPw+Hs2WfXT7I55+S9Q8Uq+gfkvUPFKvoOhlcnnw+Hcevl2Od/kvUPFKvoH5L1DxSr6DojfSMj4fDuPXy7HO/wAl6h4pU9B6jpOpSeI2lRs6DuA+Hx7nvrpdiDUNntVqSw6Cpdc5JI21jstTg1O7quo93ex3IkeQSwwqo83zI55lkunI80YQo01TpwUILckluR6HENpJt4S6S10RV3tjBG9ptb7XyrOzn3/CdRP4vUjztDr8eQ7awnlvdOouHkRFm23l72ZuVl7/AAVs0MbF/wBc0AAZpogAAAmGyurK4pKzuJ/DQXeN/KXtIee6VSdKpGpTk4zi8prmJqbnVLiRFdUrY6Z0zAwazQNWp6jQ5MsRrwXfR6etGzybkJxsipRfIxJwcHwyXM1uv6ZHUbbCSVaHxJfc+ogtWnOlVlTqRcZxeGmdNTNFtRpKvIO6t4pV4revDXtKWXjca449S5iZHC+CXQhh6hKUJqcG1KLyn0HkGUahPtB1KOoWak2lWhunFP7fIbHJzexu61lcxr0JYkuK5muhk20nWLXUIpKSp1sb6cuPmfOa+LlKa4ZdTJycZwfFHobItXFtb3VJ069KNSL5muBd3Fcl1pPkymm0RfUdl1lzsa39ift4mlr6TqNB9/aVH1xXK9R0FjJTng1ye1yLkM2cVp8zmk6NWDxOlOL64tFIUas3iFKcn1RbOlvD4xT8qCjFPKjFPyEPw/8A8ib1/wD4nP7bSdSuH8HaVfLJcn1m5sNl5KSle1Fx+JD72ShAmhg1x5vmQzzZyWlyLNrb0bWiqVvTjTguaK4l4ZK8C2kl0Kjk31KYNdrup09Ot+KlWku8j5vUY+s69b2SlSoNVa/DC4RfW/uIddXFW5rSrVpuc5c7KeTlqCcYPbLmPiubUpckea1SdarKrUk5Tm8tkt2V1ZXFNWdxL4aCxFt/HXtRDz1CcoTU4ScZReU1zGdTdKqXEi/dTGyOmdODZodB12ndQjQu5KFfgm9yn+JvTbrsjYk4sxbK5Vy1JFm9taF5bujXpqcObPFdeSLahszc0252klVj4L3S9hLyqZxbjwt5tElWROvkjmtxa3Nu2q9CpTx4UWkWTqD3rDWV1lidrbzeZUKbf7KKT8PftIuRz+8Tmy38DOs9J1C6a7VbTUX8qSwie06NKmsQpwj5Ilw6j4et/ikeSz3rlEj+kbO0aDVW8xWnzR+Svb5zfLoSwVwVLtdUK1qK0UbLZ2PcmeROUacJTk1GMVltnm4q0qFJ1as1CEedvgRDaDXJXube2bjQ53zy/A5uvjUufU6oola+S5GHruoy1C8c1upQ3QXV0mvAMOc3OTkzbhFQXCgeofHj5TyeofHj5Tk6OlUPzcP2UXGW6X5qHkR7Po10Pnn1NLtl+qP7aIUTTbNpaRv56iwQsyM76prYX0gACmWwAADN0a+lYX0Kyy4PdNLnR0GnOFSnGpBpwksprnRzElGx2pbvyfVk+d0n6195ewruCXC/cpZlPEuNexKMmJqlpTvbOdCpwktz6HzMyhjPE1ZRUlpmZGXC9o5pcUp0K86M1iUJOLLZK9sdL5UfyhQhvS+FSXN4RFDBuqdU+Fm3VYrI7QLlvWqW9eFak8Tg8plsERKdF0q9pX9pGvTaT+VHni+gy3vOfaLqNTTrrtiTlTlunHPHr8pOLC9t76gqtvUUlzrg0zaxchWR0+pjZOO65bXQyH5TA1LSrW/jmtDE8bprdJecz+cFmUIzWpLaK8JOD3HkRC72Xu4PNtVhVj0S3M19TRdUpvvrOo/Jh+on64lclOWBW+j0W451i5NbOefkrUvE6voH5K1HxOr6DoeShz8Ph3OvXy7HPfyVqPidX0D8laj4pV9B0LIyPh8O49fLsc9/JWo+KVfQPyVqPidX0HQguI+Hw7j18uxze6tLm15PdFGdPlcOUuJYJRt3xtfJL7iLmfdX5c3E0KZ+ZBSAAIiQAAAEv2H/AECv879yIgbDS9Xu9OpSp26puMpcp8qOd5Nj2KuxSZDfBzrcUT/nMDXr6nY6fUfKXbZRcYR6X0kZqbTalKLiu0wb54w3r7TVXVxXuqrq3FWVSb52Xbc6Li1BFOrCkpbky0ADMNIAAAAAAHuhVqUK0a1KTjODymjwACe6Hq1HUaCTajXiu+h09a6TZHMqc505qcJOMlwaeGjeWe095SXJr04V1jGfis06M5a1YZt2E97gTFBEZ99ccfojz+0Y91tTdTjyaFCnS/rNtsnebUl1II4du+hJdRvrewoOrXmlj4sVxk+ogOo3dS9u53FXjJ7lndFdB4ubivc1XVr1ZVJvnbLRnZGTK569jQx8dVc3zYABWLIAAB6hKUJqcJOMlvTT3okWlbTTglSv4ua/nI8fORsEldsq3uLI7Ko2LUkdHs7y1u4cu3rQn0pPevKZGDmVOc6clOEpRkuDi8NGdR1rU6MeTG7m49EsP7eJfh4h9yKM8D7WT/AwQqG02pRjj4GXW4fievfPqXg0PoP2kqzqiL0ViJm+IIZ76NR8C3+i/aPfPqPgW/0X7R66oeisJmCGe+fUfAt/ov2j30aj4Fv9F+0euqHorCaJFMEM99Go+Bb/AEX7R759S8G3X9h+0euqHobCaYKSxFZbS8rINV2h1SfCvGH7MF95gXF5dXGe3XFSafM5bvQcS8QiuiO44E/dky1DX7C0zGM+3zXCMN/pZGNV1m7v24Sl2uj/ADcXu8/Sa0FK3Kss5N8i5XjQr5+4ABXLAAAAAAAAABes7ira3EK9GWJxfp6mTzSNSoajbqpTajUXx4N70znpct61W3qqrRqSpzXBpljHyHS/yK9+OrV+Z0sqskIpbSanTiouVKeOeUN7Pfvo1LwLf6D9poeuqKPorEZG1mkcicr62h3j31IrmfSRs3ktp9QlFxlStnF7mnB+00k3ypuXJUcvOFwRnXuuUtwNChWRjqZQrGUoSUoycZLemnvRQEBMSLSNpJ0kqV+nUiuFRcV5eoktpe2t3BToV4SzzZ3ry54HOD1CUoSUoScZLg08Mt1Zk4LT5oqW4kJ81yOm+YYIHa65qVulGNxy4rmms/ibCjtXcRjirawm+lSaLsM6t9eRUlhWLpzJZgrgjMNq4fLtJeaQntZD5FpLzs79ZT3I3iXdiTYKYInW2ruJL4G1pwfTKXK9hrbzW9Sucqdw4RfNTXJ+3icTzq105kkMGx9eRM77UrOyjmtXinzRTzJ+Yi+r7RV7qMqVsnRpPi898zSNtvLbbfOyhRtzLLOS5IuVYkIc3zYABVLQAAAN5pG0Nxa4pXKdel0575efnNGDuFkoPcWcThGa1JHRLHUbO9jm3rRb54vc15jLOZQlKElKEnGS4NPDRsbXXdSt0kq/bIrgprP4mhX4hy1NFCzA94MngXEilHauso4q2sJPnkpY+wyYbV2+O+tqqfVj2lhZlT9yB4lq9iRYGCN1Nq6X+rtZv9ppGLcbVXUn8Bb06f7TcvYePMqXuerEtfsS6WEm28Jc7NVqmu2dknGMlWreDF8H1siV5ql/dJqtczceHJjuX2GEVrM9vlBFivBXWbM3U9SutQqcqvPvV8WC3JGEAZ8pOT2y/GKitIAA8PQeofHj5TyVTw0wDpdFfBw/ZR78vAhcdptRiklC33f1H7THvdd1G6g4SrKnF8VTWMms86tLkjKWDNvmZu2OoQuK8LSjJShSeZNcOV+BHwDMssdknJmlXBVxUUAAcHYAAALlvVnQrwrU3icHlFsAHRdLvqN/Zwr02s476PPF9BlcDm1pdXFpU7Zb1ZU5c+OD8xtI7TalGKXwLxzuD9pqVZ8eHU1zMyzClv8AC+RNKi5cHBxzF7mmQHXdPlp964cl9qnl031dHmMxbT6kuCt/ofiYup6zdajRVK5hRxF5TjHDXnyR5N9VsfzJMai2qXPoa0AGeXwX7O6r2lZVbeo4SXoflLAPU2ntHjW+TJfpm01CoowvIdqn4S3xfsN9Sq0qsVOlOM4venF5OZFyhXrUJcqjVnTf9WTRdrzpx5S5lOzCjLnHkdLfEEDpa7qkEl3S5JcOUkZC2n1LHCg/7H4llZ9b6orvBmujJoMEM98+peDb/QftHvo1Lwbf6D9p766s49DYTPmGCGe+fUfBt/ov2j30al4Nv9B+0euqHorSaYGCF++jUvBt/oP2mPea9qVzBwlVVOL4qmsCWfWlyR1HBs3zZf2wu43GpKlTkpRox5OV085pADKsm5ycn7mnXBQior2AAODsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuW9Gtc14ULelOrVqSUYQhFuUm+ZJcToez/Ya2x1OCq3VG30ym/GJ99j9mOfQ8Eo9zJs3SqyvdprmlCcqclb2rksuL3OUl9iz5Tus5wpwlOc1CCWW5PCSMTO8TnVY661+5o42HGceOZwqh2AKzS7dtNTT51C0f3yMhe5/p8+0sv3X/uOgah2TNiLCo6dbX7ack8NUk6mPPFGGuy9sF/vmX7tU9hVWT4hJbSf9P7E/k4qenr+pDP/AE/0v6Sz/df+4f8Ap+pf0ln+6/8AcTT+V7YJf/rMv3ap/CP5Xtgv98y/dqn8I9R4h2f9P7Dy8T8v6/3IHqfYFVtp9xcUdo+XUp05TjGdthNpcN0vMcPe54PqPVuy3sLU0q7p0tVq1Kk6M4xireay2sJb1g+XXxNTw6eROMvO3+WyllRqi15ZQAGiVAAADq2wPYge0+zFtrU9bVr3Q5cmkqHKwk2uOV0Gu7KXYylsTpNtqK1ZXka1ftLg6PIcXhvPF9B2jsE/6MNK8lT+/Ij3uov8zdO/49f3JGDDNueZ5bf4dtexpyx61j8euej5zABvGYAAAAAAAAADM0jTL/V7+nYaZaVbq5qfFp045b9iMM+k/c77LUdL2Xjrleku7tQXKjJrfGlnvUvLx69xVy8lY9fH7+xPj0u6fCQLQuwbtNeU41NSvLPTVJfEbdWa8qju+039LsARx8LtK2/6trj1yO06he2en2lS8v7mlbW9P49SpJRjHzsht12XNhLeq6b1iVRri6VCck/PjDMOOdm3N8H8L/8ATSeNj1/N/LIZ/IBb/wBJKv7svaUl2AKGO92kqZ67ZfxEu/lj2D/3nX/dp+wquzFsG3j8qV15bWp7DrzvEez/AKf2PPLxPy/qc+1LsB6nTpSlp+vWtxPmhVoyp586b9RznazY7aLZepjV9OqUqTlyYV499Tk+qS9T3n1ds1tPoO0dGVXRtTo3XJxy4J4nHOcZi96MnaDSrPW9HudKv6Sq29xBwknzPma61xPa/Fb658Ny/wCGczwq5x3A+KAZ+0OmVtG1y90uvnl2taVNtrGUnufnWGYB9EmmtoyWtcgAD0Am/Ys2BntvVvf/AHGNlTtVHL7XynJyz17uBCDufuWPi64+ul/1FTOtnVRKcOqJ8aEZ2qMuh6XYBp/0kl+7f9xVdgClz7ST/dv+47JrWo2+kaRdand8rtFtSlUqclZfJSy8IgC7N2xf/wDfX/wfiYVWXnWrcG3+yNKdGNXykRz+QCjz7S1P3VfxD/0/0f6Sz/df+4kf8t2xXhX/AO7j+W3Yvwr/AOoJfN8S7P8Aov8A0ccGJ/1kXr+5/fJ+A2mWf69r7JEF227F202y9vO8qUqd9Yw3yr27zyF0yjxX2o+g9jeyFsztXdys9Lu6ndUY8vtVWm4NpdHTglF1QpXNtVtq8Izp1YOE4tZTTWGjleJZNM0rf6aOniU2R3A+GwZmuWqsdavrKPxbe4qUl5Iya+4wz6RPa2Y4AB6AAAAbbZTZ/UtptZpaVpVHtlee9tvEYRXGUnzJGpPpL3PGy/5J2XetXNNK61LEo5W+NJfF9O9+gqZuT6epzXX2J8enzZqPsaC37AD7UnX2k7/CyoW25PzyIt2QuxFrGzGmz1S0uY6lZUlms4w5E6S6WsvK6WuB9HavrOm6RToT1C6hbxr1o0aXK+VOXBGRd0qd3bVLerGM6NWLjOLWU01vRg1+KZMZKUntfoacsOlrUep8PgkPZD2dq7L7W3ukzT7VCfLoSfyqb3xf3eVEePp4SU4qS6MxpRcXpgAHR4AAACcdinYF7c1r6L1JWULSMW32vluTlnrWOBBzuPuVPz+u/s0f+oqZ1sqqJTh1X/snxoRnaoy6Gs2y7C0tB2avdYp66rh2tPtjpuhyeUlxWc/4wchPr/strPY313pVpM+QCDwzIsvrbm9tMlzKo1zSigADSKYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9V9gS37n7GGm7sOpKpUfnm/u9RpPdK6zcWGyNrp9tVlTd9X5NXG5uEVlryZwSjsNLk9jPRcfzH3s597qnKoaHv4yq+qJ8vSuPxDmvd/8mzbuOLy7I4QAfUXY12L2Uu9gtGurrZ/Tq9etawnUqVKKlKUmt7bZvZeXHGipSW9mbRQ7m0mfLoPsX3h7F4/zY0r93j7CnvD2M59mNK/d4+wofGq/tZZ+Hz7nx2D6+vtgNi5WlZe9rTYvtcsONFJp46UfItzFQuKkI8IzaXpLuJmxyd8K1or348qdbfUtgAuFcAAA+rewT/ow0ryVP78iO+6i/wAzdO/45f3JEj7Ba/8AxfpPkqf35Ed91D/mZp/Vfr+5I+Xr/wDkP3ZtT/yv7I+cwAfUGKAAAAAAAAAVW9n2hsnawsdm9Ns4LvaVrTgvoo+L4fHXlPtzTf1fbfMw/umH423wwX6ml4d80jhHuoNXrz1vT9DhUmqFKh2+cE90pSbSz5FF+k4ydO90r/pFh/wNL1yOYmhgRUceGuxUym3bLYABcICS9jDVbnR9utJubao4cu5hRqJPClCbUWn6c+Y+wVxPirZltbR6Y1xV3S/vo+1VwPnvGklKL0avhz/DJHyv2frVW3ZNv5r/AF8KdX/lS+4gJ033SiS7Iy67Kl65HMjYw3uiD/JGfetWS/UAAskQO6e5Y+Jrnlpf9Rws7n7lj4mueWl/1FDxP/Ky/b/ctYf1kdO7KDz2Otf/AOBqeo+Pj7gura3vLapa3VGFahVi4VKc1mMk+KaNJHYTY1f/ALZ0v93iYuBnxxoOLW9mhlYsrpJpnx0D7H942xy47M6T+6x9gew2xv8ARjSv3aPsL/xqv7WVfh8+584dgqjXq9k7SnQhOSpucqjjzR5DWX6UfV6e7JrtI0DRNHc3pelWdk5/GdGiouXlwjUdlC72istkburs1axr3Sg+W2+/pxxvlGOO+a6PXwMzKyFm3LhWvbmXKKvT1vfM+VNrqkau1erVIPMZXtZp9XLZqys3KUnKTbk3lt8clD6yK0kjEb29gAHp4AAAbzYXZ+vtNtPZ6RRyo1Z5qzXyKa3yfo4deD7Es6FK2taVtRgoUqUFCCXBJLCRy33Ouya0vZ2Wv3dHF5qC+CclvhRT3fSe/rWCWdlfaSGyuxt1qFOajd1F2m1XO5yXHzb35j5rxC15WQqoe3L9zYxYKmpzl+pxP3Qe1T1ja/8AJlnWfcmmd4nF7pVflPzbl5mdr7EW0T2k2Gsb2tNSuqadC437+XHdnqysPznyTXq1K1adarOU6k5OUpSeW2+LZ033PW1f5G2o/I11VxZak1COXuhW+S+rPD0F/Nwl6VRgucf+sq4+Q/Ocpe50D3Rmy/5X2ehrtrSzd6cm6uFvnRfHy4e/yZPm8+5K1GlXo1KNenGpTnFxlGSymnxR8h9lHZmeym2N3pqi+5pS7bay6acuC829eYj8IyeKPlS6rod59Ompr3IuADaM4AAAHcvcqfn9d/Zo/wDUcNO4+5V/Pa7+zR/6ij4l/lpft/uWcP60Tp/Za/0ba7/wkj4/PsDstf6N9d/4SR8flTwX6Uv1J/EPnX6AAGyZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9adhOqqvYx0ZrmpSj6JNEK91RbylpGjXSXewrzpvyuKa9TNt7mvWKV5sPPSspVtPryTjnjGbcov05XmJj2QtlbTbDZurpN1UdGfKVShWS5Xaprg8c+7c9/OfKuax87il02/wCTa4XbjJR7HxySnR+yDtjpGnUdP0/XK1G2ork06fIhLkroWU2S+77BG1VOq422oaXXhzSc5xb83J3Fj+QzbPmq6V+8S/hN2WXiWL8UkzNVF0XyTNF/Kpt9/SKt9VT/AISbdhbbzazXtuqGnatq9S6tZUakpQlTgt6jlPKSNK+wbtr/ADmlv/7D/hJp2IOxXrezG1C1rV7mz5NOlOEKdGbk22sb20lj0lXJtw/Klw8O9ciamF/Gt70dfut9rV/YfqPiK+/Ta/zkvWfb128WlVvh2t+o+ILxqV3WknlOcmvSQeCL5/2/5JfEX8v7loAG8ZgAAB9Xdgpp9i/SceDUX/8ApIj/ALp+LexNjJJ4jfRz9CRl+5v1Kld7ARsYvFWxuJwms78SfKTx58eZkv2+2Zt9rdmbjRq9V0XNqdOqo8rkTTyn19fVk+UnNUZrlPpxG3GDsxko9j43B1e77BO1VOs429/pdan8mTqTi35uTuLP8hm2X8/pX18v4T6BZ+O/9aMv01v2nLgdR/kM2y/ntK+vl/CF2DNs3/rtK/eJfwj12P8Aeh6a37TlwNhtDpF5oWtXWkX6grm2nyKnIllZxnc/Oa8tJpraIWtPTAAPTwrHdJPrPtrR5qppdpUi8qVGDXnij4kPrjsRavS1rYHSriE+VUpUVQrJvLU49792V5TF8ag3XGXZmj4dJKbRxr3TVGcNvbes0+RUsYJPrUpJnLD6t7LPY9pbb2ttKjdq0vbXlKnUlFyjKL+S8cOC9hySt2DNsYTap19KqR5n2+S9cSXBzqVTGMpaaOMnGsdjaW0zloOn/wAh+2nh6Z+8P+ELsHbaN756Wv8A7D/hLfrsf70V/T2/aQTZGm621ek0ksud7RX/ADo+0o9Bx3sZdh240HXLfWtdvretVt25Uregm4qWNzcmubOcY44OwtqEXKTwlvZheKZELppQe9GnhUyrg3L3PmP3R1WNXsk1Ixf5u1pRf2v7zmxJeyfq9LXNvNW1Gg80Z1+RTecpxilFNdTxnzkaPoMaDhTGL7IyrZcU2wACcjB3X3Ky+C139qj/ANRwo7r7lb8zr37VH1SKHif+Vl+3+5ZxPrROqdkK6uLPYbWrq1rTo16VnUlTqQeHGSW5pny17+9sf6Sal9cz6q210641bZDVdNtFF17m1qU6ak8Jya3bz54/kW268Vs/3mJm+FTpjCXmNdfcuZsLHJcCZG/f3tj/AEk1L65j39bY/wBJNS+vZJV2FdufFrL95QfYV25X+zWX7yjU87E7x/gp+Xf2ZndiLsjbTe/Gw0zUtSrX9leVO1ThWfKcW+Ek+K3+Y+kmsxw9+eJwbsbdh/aHTNqrHV9aq2dChaVO29rp1OXOUlwXDCWec70jC8TlTK1OrX56NLDVig1M+NOyHp8dL241mxgkoU7ufJSWEk3lL0M0JJ+yrd073sia5cUnmLu5Rz+z3r9RGD6apt1xb7Ix7ElJ6AAJDgEj7G+zlTana6z0qMX2ly7ZcSXyacePp4eVojh9Le582ReibNPWbuCV5qUYzimt8KXyV5Xx/wDBTzsn09Tl7+xPjVebYl7HTLahTt7enQowjCnTiowjFYSS3JEB7KnY+vtt7q0cNchZWttF8mi6Dnmbe+WeUubC/wDJKNtNpdP2V0Krq2oKcqcJKMadPHKm28YWWjnn8vWzn+6NV9FP+I+bxa8nfm1Ln/3ua906tcE3o0i9z/cc+09L9zf8Zct+wJd0K9OtS2qpwqU5KUZRtGmmt6a782/8vWzf+6NV9FP+IPs9bOf7n1X/AJP4jQ8zxLt/CKvBid/9zrNnCrC0pU7irGrWjBKc4x5KlLG9pcxzL3Rezf5U2OWr0aTlc6bLlNre3Se6X3PzMvbM9mXZzW9ctdKjZ39rO5n2uFSsochS5s4l07vOdIuqFK5tattXgqlKrBwnGS3STWGjOh5uJdGc1pluXBfBqL2fDgJH2R9ma2ye1d1pU8yo57ZbzfyqcuHnXB9aI4fXwmpxUo9GYMouL0wADo8B3H3KjXb9eX9Wj/1nDjr3uX9So221GoabUeJ3lvGVNt8XB5a63h/YUvEIuWNJL/vMsYj1dE7J2V05djjXseJT9R8en29qtlQ1LTLnT7qPKoXFKVKoumMlhnANW7A+0FK5n+TNTsLijnve2uVOSXMnuayZfhWVVVGUJvTLudROclKK2cgB1JdgzbF/7RpX18v4Sv8AIXtj4xpX18v4TW9fj/eij6a37TlgOpPsF7Z81fSn/wDYl/CQzbfZLVdkNSp2GrdodSrTVSEqM+VFrOOhb9xJXlU2vUJJs4lTZBbkjQAAnIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACTdjrbC+2N138oWse3UakeRcUG8KpH7muZn0bsz2T9jtboQktVpWVdpZoXT5Ek+jL3PzZPkwFHKwKsl8UuT7lmnKnStLofbtLUtNqRUqd/azi+DjWi16y476y4d12/1kT4fTa4NleVLwn6Sj8Ej9/8ABZ+Iv7T7f7usvHLf6yJbq6pplGDnW1C0hFcXKtFL1nxJypeE/SUbb4tj4JH7/wCB8Rf2n0x2T+ypoGm6FdWWi39PUNSr05U4dofKhSzlOTlw3dCyfMwBpYuJDGjwx9yndfK57kAAWiEAAAlHY32yvtjNc7uto9utqqULmg3hVI/c1zM+jdmuyZsdrlCEqerUrStLc6F0+1yTfNv3PzHyUCjleH1ZL4nyZZoyp0rS6H29DUdPqRUqd/ayT4NVlg9922fjdD62J8PptcGyvLn4UvSUPgkfv/gtfEn9p9v92WmP0u3+siVV7Z5/S7df/LE+H+XPwpekcufhS9I+CR9p/wAf3PPiL+3+SW9mSrSr9kzW6lGpCpB11iUXlbopMiABtVw4IKPYz5S4pNgAHZyCc9iXb6vsXqk414VLjS7n8/Ri98X4cc8/rIMDiyuNsXCS2mdQm4S4o9T7B0Lb3ZLWqcJWWuWnLnwp1Z9rmv7Mt5v1fWMl3t5bvr7bFnw+VUpLhJ+kx5eCwb/DJovx8RklzR9wd2WfjVD6xB3tmuN3QX/yRPiDlz8KXpHLl4T9Jz8Ej9/8f3PfiL+0+z9V2n2d0uHKv9asKCxnvq0c+jOWcd7KnZit73T62jbKupyaycK17KPJ718VBcene/McQBZx/CaqpcTe2Q25s5rS5AAGoUwAAAdv9y5d21H8t0q1xSpzl2qSU5qOV3284gVTa4PBBk0+fU6962SVWeXNS7H2/wB22Pjlv9ZEqr2y8bt/rInxBypeE/SOVLwn6TJ+CL7/AOP7l74i/t/k+3+7bPxuh9ZEqr2zxjuuh9ZE+H+VLwn6RypeE/Se/BI/f/H9x8Rf2n27U1DT6cHOd9bQS4t1lggm3/ZX2d0LTq1PS76lqWpSi40oUZcqEJcMykuCXHHE+XHKT4tvzlCSrwauMtyls5n4hNrSWi5cVqlxcVK9aTnUqTc5yfO28tlsA2DPAAAJH2NtFoa/tpp+nXdSFO2lU5dZykknCO9rf04x5z67p3Wn06cacLq2jCK5KSqxwkfEKbXA9cuXhP0mfmYPqpJuWki1j5Pkp6Wzqfui9qoattHT0SyrqdnYLM3GWYyqv7Ny3ednKgC3RSqa1BexBZY7JOT9wACU4PdGpOjVhVpTcJwkpRknhprgz657Gu19ntJsjZ6hVuaNO6jFU7mEppNVFub8/HznyGVTa4Nop5mHHKik3posY+Q6W2vc+kPdFaNp2s7KLWKF1a926c87qizOm3hx4+Rrz9J83FXKT4t+kod4mO8evgctnF1qtlxa0AAWSIGboep3mjatbapYVO13NvNThL7n1PgYQPGk1phPXM+oNiOy7s1rdrCGp3MNJvku/hXlinJ9MZf4ZPLfVNLuKaqUNRtKkZcHGtFr1nxGVTa4NmPb4NVKW4vX8mhDxCcVprZ9wd3WXjlv9ZEd22fjlv8AWRPiDlS8J+kcufhS9JH8Ej9/8f3OviL+0+4O7bNf7Xbr/wCSJ87e6cuLevtdYKhWp1OTZ99yZJ475nKOXPw5eko23xeSxieGLHs4+Lf7EV+Y7YcOtFAAapSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//Z" alt="NexCore Global">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="#why">Why Korea</a></li>
-    <li><a href="products.html">Products</a></li>
-    <li><a href="#process">How It Works</a></li>
-    <li><a href="#cta" class="nav-cta">Contact Us</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#why">Why Korea</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="index.html#process">How It Works</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">
-      <div class="hero-tag-dot"></div>
-      <span>Korea Export Consignment Partner · Cheorwon, Gangwon</span>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Product Portfolio</div>
+    <h2 class="h2" style="color:var(--white)">Korea's Finest <em style="color:var(--gold-light)">Premium Products</em></h2>
+    <p>All products sourced from government-certified Korean suppliers in Cheorwon and Gangwon Province — verified quality, full documentation, export-ready for international buyers.</p>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filter('all')">All Products</button>
+      <button class="filter-btn" onclick="scrollTo2('#rice')">🌾 Rice</button>
+      <button class="filter-btn" onclick="scrollTo2('#agri')">🥬 Agricultural</button>
+      <button class="filter-btn" onclick="scrollTo2('#food')">🍱 Food</button>
+      <button class="filter-btn" onclick="scrollTo2('#industrial')">🏭 Industrial</button>
     </div>
-    <h1 class="hero-h1">Your Trusted<br>Partner for <em>Korean</em><br>Premium Products.</h1>
-    <p class="hero-sub">NexCore Global sources and exports Korea's finest regional products — from certified agricultural goods to high-quality industrial products — connecting verified Korean suppliers with international buyers across 21+ countries.</p>
-    <div class="hero-btns">
-      <a href="products.html" class="btn-gold">Explore Our Products</a>
-      <a href="#why" class="btn-outline">Why Source from Korea</a>
-    </div>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
-</section>
-
-<!-- STATS -->
-<div id="stats">
-  <div class="stats-row">
-    <div class="stat-item reveal"><span class="stat-n">21+</span><span class="stat-l">Export Destinations</span></div>
-    <div class="stat-item reveal reveal-d1"><span class="stat-n">100%</span><span class="stat-l">Government Certified Products</span></div>
-    <div class="stat-item reveal reveal-d2"><span class="stat-n">DMZ</span><span class="stat-l">Clean Zone Origin</span></div>
-    <div class="stat-item reveal reveal-d3"><span class="stat-n">B2B</span><span class="stat-l">Direct Buyer Partnership</span></div>
   </div>
 </div>
 
-<!-- INTRO -->
-<section id="intro">
+<!-- RICE -->
+<section class="prod-section" id="rice">
   <div class="section-wrap">
-    <div class="intro-grid">
-      <div class="intro-text reveal">
-        <div class="tag">About NexCore Global</div>
-        <h2 class="h2">Korea's Export <em>Consignment</em> Specialist</h2>
-        <br>
-        <p>NexCore Global is a Korea-based export consignment marketing company headquartered in <strong>Cheorwon-gun, Gangwon Province</strong> — one of Korea's most prized agricultural and industrial regions, situated directly adjacent to the Demilitarized Zone.</p>
-        <p>We serve as the direct bridge between verified Korean suppliers and international buyers worldwide. Our team handles the full export process — from product sourcing and quality verification to documentation, logistics coordination, and buyer matching — so your procurement is seamless and reliable.</p>
-        <p><strong>We do not manufacture.</strong> We find, verify, and connect. Every product in our portfolio is sourced from established Korean producers with government-certified quality standards.</p>
-        <div class="intro-quote">
-          <p>"We carry the story of this land in everything we export."</p>
-          <cite>— Ki-Ho Kim, CEO · NexCore Global · Cheorwon, Korea</cite>
-        </div>
-      </div>
-      <div class="reveal reveal-d2">
-        <div class="intro-img">
-          <!-- REPLACE: Change src below to your own company/Cheorwon photo -->
-          <img src="https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=800&q=80" alt="Cheorwon agricultural region">
-          <div class="intro-img-badge">
-            <span>Established</span>
-            <strong>Cheorwon, Gangwon · 2024</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-wrap">
-    <div class="services-hdr reveal">
-      <div class="tag">Our Services</div>
-      <h2 class="h2 h2-light">What We Do<br><em>for International Buyers</em></h2>
-    </div>
-    <div class="services-grid">
-      <div class="svc-card reveal">
-        <span class="svc-num">01</span>
-        <span class="svc-icon">🔍</span>
-        <h3>Product Sourcing & Verification</h3>
-        <p>We identify and verify the best Korean suppliers for your requirements — checking certifications, quality grades, production capacity, and track records.</p>
-        <ul class="svc-list">
-          <li>Government-certified product sourcing</li>
-          <li>Quality grade verification</li>
-          <li>Supplier background checks</li>
-          <li>Sample arrangement</li>
-        </ul>
-      </div>
-      <div class="svc-card reveal reveal-d1">
-        <span class="svc-num">02</span>
-        <span class="svc-icon">📋</span>
-        <h3>Export Documentation & Compliance</h3>
-        <p>We manage all export paperwork — certificates of origin, phytosanitary certificates, customs declarations, and regulatory compliance for your destination market.</p>
-        <ul class="svc-list">
-          <li>Certificate of Origin</li>
-          <li>Phytosanitary & HACCP documentation</li>
-          <li>Halal certification arrangement</li>
-          <li>Customs & regulatory compliance</li>
-        </ul>
-      </div>
-      <div class="svc-card reveal reveal-d2">
-        <span class="svc-num">03</span>
-        <span class="svc-icon">🌏</span>
-        <h3>Logistics & Delivery Coordination</h3>
-        <p>From Korean port to your destination — we coordinate freight, cold chain logistics where required, container loading, and tracking throughout the shipment lifecycle.</p>
-        <ul class="svc-list">
-          <li>FOB / CIF / DDP terms available</li>
-          <li>Container & LCL shipments</li>
-          <li>Cold chain for agricultural products</li>
-          <li>Real-time shipment tracking</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY SOURCE -->
-<section id="why">
-  <div class="section-wrap">
-    <div class="why-grid reveal">
-      <div class="why-img">
-        <!-- REPLACE: Change background-image URL in CSS .why-img to your DMZ/nature photo -->
-        <div class="why-img-overlay"></div>
-        <div class="why-img-text">
-          <h3>"Grown where the DMZ begins — Asia's last untouched land."</h3>
-          <p>Cheorwon, Gangwon Province · 70+ years of pristine ecology</p>
-        </div>
-      </div>
-      <div class="why-content">
-        <div class="tag">Why Source from Cheorwon, Korea</div>
-        <h2 class="h2 h2-light">Unmatched Quality<br><em>from a Protected Origin</em></h2>
-        <div class="why-points">
-          <div class="why-pt">
-            <div class="why-pt-icon">🛡️</div>
-            <div><h4>DMZ Clean Zone</h4><p>Cheorwon sits beside a 4km military buffer untouched by industrial pollution since 1953 — one of the world's most pristine agricultural environments.</p></div>
-          </div>
-          <div class="why-pt">
-            <div class="why-pt-icon">💧</div>
-            <div><h4>Pristine Water Source</h4><p>Rivers flowing from DMZ headwaters deliver mineral-rich, uncontaminated water directly to Cheorwon's farms — impossible to replicate elsewhere.</p></div>
-          </div>
-          <div class="why-pt">
-            <div class="why-pt-icon">🏔️</div>
-            <div><h4>250m Volcanic Plateau</h4><p>Cheorwon Plain sits on 270,000-year-old lava plateau soil — uniquely fertile and mineral-rich, producing crops with exceptional flavor profiles.</p></div>
-          </div>
-          <div class="why-pt">
-            <div class="why-pt-icon">📜</div>
-            <div><h4>Korean Government Certified</h4><p>Products sourced through NexCore Global carry official Korean government certifications — Geographic Indication, HACCP, and quality grade standards.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS PREVIEW -->
-<section id="products-preview">
-  <div class="section-wrap">
-    <div class="prod-prev-hdr reveal">
+    <div class="prod-section-hdr reveal">
+      <div class="prod-section-icon">🌾</div>
       <div>
-        <div class="tag">Product Portfolio</div>
-        <h2 class="h2">What We <em>Export</em></h2>
+        <h2>Cheorwon Odae Rice</h2>
+        <p>Korea's most celebrated premium rice variety — Presidential Award winner, government-certified, and exported to 21+ countries with a consistent 30–40% price premium over standard Korean rice.</p>
       </div>
-      <a href="products.html" class="btn-gold">View All Products</a>
     </div>
-    <div class="prod-prev-grid">
-      <a href="products.html#rice" class="prod-prev-card reveal">
-        <div class="prod-prev-img">
-          <!-- REPLACE: Change src below to your own Odae rice photo -->
-          <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=600&q=80" alt="Cheorwon Odae Rice">
-          <div class="prod-prev-badge">⭐ Featured</div>
+    <div class="featured-prod">
+      <div class="feat-img reveal">
+        <!-- REPLACE: Change src below to your own Odae rice photo -->
+        <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80" alt="Cheorwon Odae Rice">
+        <div class="feat-img-overlay"></div>
+        <div class="feat-badge-row">
+          <div class="feat-badge">#1 Australia Market</div>
+          <div class="feat-badge">Presidential Award</div>
+          <div class="feat-badge">GI Certified</div>
         </div>
-        <div class="prod-prev-body">
-          <h3>Cheorwon Odae Rice</h3>
-          <p>Korea's #1 premium rice. Presidential Award winner. 30–40% price premium. Exported to 21+ countries.</p>
-          <span class="prod-prev-link">View Details →</span>
+      </div>
+      <div class="feat-content reveal reveal-d2">
+        <h3>철원 오대쌀<br>Cheorwon Odae Rice</h3>
+        <p class="desc">Grown on the Cheorwon volcanic plateau at 250m elevation, watered by pristine DMZ headwater streams, and ripened in the optimal 8–11°C day-night temperature gap. Odae Rice is a single-variety, non-blended premium rice with superior flavor, stickiness, and the rare quality of staying soft when cold.</p>
+        <div class="feat-features">
+          <div class="feat-ft"><span class="feat-ft-icon">🌿</span><span class="feat-ft-name">Single-Variety Purity</span><span class="feat-ft-desc">100% Odae, never blended</span></div>
+          <div class="feat-ft"><span class="feat-ft-icon">💧</span><span class="feat-ft-name">DMZ Pure Water</span><span class="feat-ft-desc">Zero industrial contamination</span></div>
+          <div class="feat-ft"><span class="feat-ft-icon">🍱</span><span class="feat-ft-name">Stays Soft When Cold</span><span class="feat-ft-desc">Ideal for bento & meal kits</span></div>
+          <div class="feat-ft"><span class="feat-ft-icon">🏆</span><span class="feat-ft-name">Gov. Certified #1</span><span class="feat-ft-desc">Best flavor, NAQS 1992</span></div>
         </div>
-      </a>
-      <a href="products.html#agri" class="prod-prev-card reveal reveal-d1">
-        <div class="prod-prev-img">
-          <!-- REPLACE: Change src below to your own agricultural product photo -->
-          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Agricultural Products">
-          <div class="prod-prev-badge">Agriculture</div>
+        <div class="award-row">
+          <div class="award"><span class="award-yr">1992</span><span class="award-lbl">Best Flavor<br>NAQS Korea</span></div>
+          <div class="award"><span class="award-yr">2005</span><span class="award-lbl">Presidential<br>Award</span></div>
+          <div class="award"><span class="award-yr">GI #13</span><span class="award-lbl">Geographic<br>Indication</span></div>
         </div>
-        <div class="prod-prev-body">
-          <h3>Korean Agricultural Products</h3>
-          <p>Certified Gangwon-origin grains, vegetables, and specialty crops from DMZ-adjacent farms.</p>
-          <span class="prod-prev-link">View Details →</span>
+        <div class="specs-table">
+          <div class="specs-hdr"><h4>철원 오대쌀</h4><span>Product Spec</span></div>
+          <div class="spec-row"><span class="spec-k">Variety</span><span class="spec-v">Odae (오대) — Single, Non-Blended</span></div>
+          <div class="spec-row"><span class="spec-k">Origin</span><span class="spec-v">Cheorwon-gun, Gangwon, Korea</span></div>
+          <div class="spec-row"><span class="spec-k">Altitude</span><span class="spec-v">250m above sea level</span></div>
+          <div class="spec-row"><span class="spec-k">Moisture</span><span class="spec-v">14% max</span></div>
+          <div class="spec-row"><span class="spec-k">Grain Length</span><span class="spec-v">~5.2mm average</span></div>
+          <div class="spec-row"><span class="spec-k">Packaging</span><span class="spec-v">10kg / 20kg (customizable)</span></div>
+          <div class="spec-row"><span class="spec-k">Container Load</span><span class="spec-v">27MT (10kg) / 28MT (20kg) per 20ft</span></div>
+          <div class="spec-row"><span class="spec-k">Certifications</span><span class="spec-v">Gov. Quality Cert · Halal (request) · HACCP</span></div>
+          <div class="spec-row"><span class="spec-k">Markets</span><span class="spec-v">Australia #1 · USA · 21+ Countries</span></div>
         </div>
-      </a>
-      <a href="products.html#food" class="prod-prev-card reveal reveal-d2">
-        <div class="prod-prev-img">
-          <!-- REPLACE: Change src below to your own food product photo -->
-          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=600&q=80" alt="Korean Food Products">
-          <div class="prod-prev-badge">Food</div>
+        <div class="btn-row">
+          <a href="#contact" class="btn-gold-sm">Request Sample</a>
+          <a href="#contact" class="btn-navy">Get Pricing</a>
         </div>
-        <div class="prod-prev-body">
-          <h3>Korean Food Products</h3>
-          <p>Premium processed and packaged Korean food products — HACCP certified, export-ready, customizable labeling.</p>
-          <span class="prod-prev-link">View Details →</span>
-        </div>
-      </a>
-      <a href="products.html#industrial" class="prod-prev-card reveal reveal-d3">
-        <div class="prod-prev-img">
-          <!-- REPLACE: Change src below to your own industrial product photo -->
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Industrial Products">
-          <div class="prod-prev-badge">Industrial</div>
-        </div>
-        <div class="prod-prev-body">
-          <h3>Korean Industrial Products</h3>
-          <p>B2B industrial goods sourced from Gangwon manufacturers — competitive pricing, full export documentation.</p>
-          <span class="prod-prev-link">View Details →</span>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STORY -->
-<section id="story">
+<!-- AGRICULTURAL -->
+<section class="prod-section" id="agri">
   <div class="section-wrap">
-    <div class="story-inner">
-      <div class="story-imgs reveal">
-        <div class="story-img story-img-tall">
-          <!-- REPLACE: Change src below to your own tall Cheorwon/DMZ photo -->
-          <img src="https://images.unsplash.com/photo-1560840775-c1d78e6540d2?w=600&q=80" alt="Cheorwon landscape">
+    <div class="prod-section-hdr reveal">
+      <div class="prod-section-icon">🥬</div>
+      <div>
+        <h2>Korean Agricultural Products</h2>
+        <p>Certified Gangwon-origin agricultural produce from DMZ-adjacent farms — grown in one of Korea's most pristine agricultural environments with strict quality standards.</p>
+      </div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own grain photo -->
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80" alt="Korean Grains">
+          <div class="prod-card-cat">Grains</div>
         </div>
-        <div class="story-img">
-          <!-- REPLACE: Change src below to your own Cheorwon rice field photo -->
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Korean rice fields">
-        </div>
-        <div class="story-img">
-          <!-- REPLACE: Change src below to your own DMZ nature photo -->
-          <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80" alt="DMZ clean water">
+        <div class="prod-card-body">
+          <h3>Premium Korean Grains</h3>
+          <p>Cheorwon-origin grains including specialty rice varieties, barley, and mixed grain blends. Government quality certified, export documentation available.</p>
+          <div class="prod-card-tags"><span class="ptag">Gov. Certified</span><span class="ptag">Gangwon Origin</span><span class="ptag">Bulk Available</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
         </div>
       </div>
-      <div class="story-content reveal reveal-d2">
-        <div class="tag">Our Origin Story</div>
-        <h2 class="h2 h2-light">Rooted in <em>Cheorwon</em></h2>
-        <br>
-        <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.9">CEO Ki-Ho Kim was born and raised in Wasu-ri, Cheorwon — a community where families have farmed the same volcanic soil for generations. After years in business development, he returned home in 2024 with a mission: to bring the exceptional quality of Cheorwon's products to global markets.</p>
-        <p style="color:rgba(255,255,255,.55);font-size:15px;line-height:1.9;margin-top:16px">NexCore Global is not just an export company. It's a commitment to showcasing what Korean regional excellence truly means — products grown in one of the world's most pristine environments, certified to the highest standards, and exported with full transparency.</p>
-        <div class="story-facts">
-          <span class="story-fact">Cheorwon, Gangwon Province</span>
-          <span class="story-fact">DMZ Adjacent Origin</span>
-          <span class="story-fact">GI Certified Region</span>
-          <span class="story-fact">Established 2024</span>
-          <span class="story-fact">Business Reg. 377-28-01674</span>
+      <div class="prod-card reveal reveal-d1">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own vegetable photo -->
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="Korean Vegetables">
+          <div class="prod-card-cat">Vegetables</div>
         </div>
+        <div class="prod-card-body">
+          <h3>Gangwon Specialty Vegetables</h3>
+          <p>High-altitude vegetables from Gangwon Province — including perilla leaves, bracken fern, bellflower root, and seasonal specialty crops unique to the region.</p>
+          <div class="prod-card-tags"><span class="ptag">High Altitude</span><span class="ptag">Low Pesticide</span><span class="ptag">Seasonal</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal reveal-d2">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own soybeans/legumes photo -->
+          <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=600&q=80" alt="Korean Soybeans">
+          <div class="prod-card-cat">Legumes</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Korean Soybeans & Legumes</h3>
+          <p>Premium Korean soybeans and legumes grown in Gangwon's clean environment. Used in premium tofu, soy sauce, and health food production internationally.</p>
+          <div class="prod-card-tags"><span class="ptag">Non-GMO</span><span class="ptag">Export Certified</span><span class="ptag">B2B Volume</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
+      </div>
+    </div>
+    <div class="inquiry-banner reveal">
+      <div>
+        <h3>Looking for specific agricultural products?</h3>
+        <p>We source from a wide network of certified Korean farmers. Tell us your specification and we'll match you with the right supplier.</p>
+      </div>
+      <div class="inquiry-btns">
+        <a href="#contact" class="btn-gold-sm">Submit Inquiry</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process">
+<!-- FOOD -->
+<section class="prod-section" id="food">
   <div class="section-wrap">
-    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 16px">
-      <div class="tag" style="justify-content:center"><div class="tag" style="margin:0">How It Works</div></div>
-      <h2 class="h2">Simple, Transparent<br><em>Procurement Process</em></h2>
+    <div class="prod-section-hdr reveal">
+      <div class="prod-section-icon">🍱</div>
+      <div>
+        <h2>Korean Food Products</h2>
+        <p>Premium processed and packaged Korean food products — HACCP certified, Halal available, with customizable private labeling for international markets.</p>
+      </div>
     </div>
-    <div class="process-steps">
-      <div class="proc-step reveal">
-        <div class="proc-num">01</div>
-        <h4>Submit Inquiry</h4>
-        <p>Tell us what product categories, specifications, quantity, and destination you need. We respond within 24 hours.</p>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own rice snack/food photo -->
+          <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Korean Food Products">
+          <div class="prod-card-cat">Packaged Food</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Rice-Based Food Products</h3>
+          <p>Rice crackers, rice cakes (tteok), and premium rice snack products made from Cheorwon Odae Rice. Health-conscious, clean-ingredient positioning for export markets.</p>
+          <div class="prod-card-tags"><span class="ptag">HACCP</span><span class="ptag">Gluten-Free Option</span><span class="ptag">Private Label</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
       </div>
-      <div class="proc-step reveal reveal-d1">
-        <div class="proc-num">02</div>
-        <h4>Product Matching</h4>
-        <p>We identify verified Korean suppliers matching your requirements and provide product specs, certifications, and pricing.</p>
+      <div class="prod-card reveal reveal-d1">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own Korean sauce/condiment photo -->
+          <img src="https://images.unsplash.com/photo-1583394293214-5b4d5898b638?w=600&q=80" alt="Korean Sauces">
+          <div class="prod-card-cat">Condiments</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Korean Sauces & Condiments</h3>
+          <p>Premium Korean soy sauce, doenjang (fermented soybean paste), gochujang, and specialty fermented condiments. Traditional recipes, modern packaging for global retailers.</p>
+          <div class="prod-card-tags"><span class="ptag">Traditional Recipe</span><span class="ptag">Halal Available</span><span class="ptag">Retail Ready</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
       </div>
-      <div class="proc-step reveal reveal-d2">
-        <div class="proc-num">03</div>
-        <h4>Sample & Agreement</h4>
-        <p>Request sample shipments before committing. We coordinate the full sample process and draft export agreements.</p>
-      </div>
-      <div class="proc-step reveal reveal-d3">
-        <div class="proc-num">04</div>
-        <h4>Export & Delivery</h4>
-        <p>Full documentation, logistics coordination, and shipment tracking until your products arrive safely at destination.</p>
+      <div class="prod-card reveal reveal-d2">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own health food/tea photo -->
+          <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80" alt="Korean Health Food">
+          <div class="prod-card-cat">Health & Functional</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Korean Health & Functional Foods</h3>
+          <p>Herbal teas, medicinal mushrooms, red ginseng products, and functional food items from Gangwon Province. Growing category in health-conscious international markets.</p>
+          <div class="prod-card-tags"><span class="ptag">Gangwon Origin</span><span class="ptag">Health Certified</span><span class="ptag">Growing Market</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<div id="certs">
-  <div class="certs-inner">
-    <p class="certs-title">Certifications & Recognition</p>
-    <div class="certs-row">
-      <div class="cert-badge">🏛️ Korean Government Quality Certification</div>
-      <div class="cert-badge">📍 Geographic Indication (GI) #13</div>
-      <div class="cert-badge">✅ HACCP Certified</div>
-      <div class="cert-badge">☪️ Halal Available on Request</div>
-      <div class="cert-badge">🌿 GAP Certified (Good Agricultural Practice)</div>
-      <div class="cert-badge">🏆 Presidential Award × 2</div>
-      <div class="cert-badge">🌏 21+ Countries Export Record</div>
+<!-- INDUSTRIAL -->
+<section class="prod-section" id="industrial">
+  <div class="section-wrap">
+    <div class="prod-section-hdr reveal">
+      <div class="prod-section-icon">🏭</div>
+      <div>
+        <h2>Korean Industrial Products</h2>
+        <p>B2B industrial goods sourced from verified Korean manufacturers in Gangwon Province — competitive pricing, full export documentation, and flexible MOQ.</p>
+      </div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own manufacturing/industrial photo -->
+          <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80" alt="Korean Manufacturing">
+          <div class="prod-card-cat">Manufacturing</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Korean Manufactured Components</h3>
+          <p>Precision-manufactured components and industrial parts from certified Korean factories. Korean manufacturing quality at competitive export pricing with full QC documentation.</p>
+          <div class="prod-card-tags"><span class="ptag">ISO Certified</span><span class="ptag">Custom Spec</span><span class="ptag">B2B Volume</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal reveal-d1">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own packaging/material photo -->
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Korean Industrial Materials">
+          <div class="prod-card-cat">Materials</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Industrial Materials & Supplies</h3>
+          <p>Industrial materials including specialty packaging, agricultural supplies, and processing equipment sourced from established Gangwon-based manufacturers.</p>
+          <div class="prod-card-tags"><span class="ptag">Direct from Factory</span><span class="ptag">Flexible MOQ</span><span class="ptag">Export Ready</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal reveal-d2">
+        <div class="prod-card-img">
+          <!-- REPLACE: Change src below to your own cosmetics/beauty photo -->
+          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80" alt="Korean Cosmetics">
+          <div class="prod-card-cat">Cosmetics</div>
+        </div>
+        <div class="prod-card-body">
+          <h3>Korean Cosmetics & Beauty</h3>
+          <p>K-beauty products from Korean certified manufacturers — skincare, personal care, and cosmetic products with full ingredient documentation for international regulatory compliance.</p>
+          <div class="prod-card-tags"><span class="ptag">KFDA Certified</span><span class="ptag">OEM Available</span><span class="ptag">SE Asia Focus</span></div>
+          <a href="#contact" class="prod-card-link">Inquire →</a>
+        </div>
+      </div>
+    </div>
+    <div class="inquiry-banner reveal">
+      <div>
+        <h3>Don't see what you're looking for?</h3>
+        <p>Our sourcing network covers a wide range of Korean products. Submit a specific inquiry and we'll find the right Korean supplier for you.</p>
+      </div>
+      <div class="inquiry-btns">
+        <a href="#contact" class="btn-gold-sm">Custom Sourcing Request</a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <div class="tag" style="justify-content:center;margin-bottom:16px"><span>Start Sourcing from Korea</span></div>
-    <h2 class="h2" style="color:var(--white);font-size:clamp(36px,4vw,54px)">Ready to Source<br><em style="color:var(--gold-light)">Premium Korean Products?</em></h2>
-    <p>Whether you're a first-time buyer or looking to expand your Korean product portfolio — our team is ready to help you find, verify, and import the right products for your market.</p>
-    <div class="cta-btns">
-      <a href="mailto:ceo@nexcoreglobal.co.kr" class="btn-gold">Send an Inquiry</a>
-      <a href="products.html" class="btn-outline">Browse Products</a>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="tag">Get In Touch</div>
+      <h2 class="h2">Request a Sample<br><em>or Product Inquiry</em></h2>
+      <p>Send us your product requirements, target quantity, and destination market. We typically respond within 24 hours with product specifications and pricing.</p>
+      <div class="contact-detail"><div class="cd-icon">✉️</div><div><span class="cd-label">Email</span><span class="cd-val">ceo@nexcoreglobal.co.kr<br>admin@nexcoreglobal.co.kr</span></div></div>
+      <div class="contact-detail"><div class="cd-icon">📞</div><div><span class="cd-label">Phone / WhatsApp</span><span class="cd-val">+82-10-3345-0579</span></div></div>
+      <div class="contact-detail"><div class="cd-icon">📍</div><div><span class="cd-label">Address</span><span class="cd-val">2F, 181 Wasuro-ro, Seomyeon<br>Cheorwon-gun, Gangwon Province, South Korea</span></div></div>
+      <div class="contact-detail"><div class="cd-icon">🏢</div><div><span class="cd-label">Business Registration</span><span class="cd-val">377-28-01674</span></div></div>
     </div>
-    <div class="cta-details">
-      <span class="cta-det">ceo@nexcoreglobal.co.kr</span>
-      <span class="cta-det">+82-10-3345-0579</span>
-      <span class="cta-det">Cheorwon-gun, Gangwon, South Korea</span>
+    <div class="contact-form reveal reveal-d2">
+      <h3 class="form-title">Product Inquiry Form</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="John"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Company</label><input type="text" placeholder="Company Name"></div>
+        <div class="form-group"><label>Country</label><input type="text" placeholder="Australia"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="john@company.com"></div>
+      <div class="form-group">
+        <label>Product of Interest</label>
+        <select>
+          <option value="">Select a product category</option>
+          <option>Cheorwon Odae Rice — Sample Request</option>
+          <option>Cheorwon Odae Rice — Bulk Pricing</option>
+          <option>Korean Agricultural Products</option>
+          <option>Korean Food Products</option>
+          <option>Korean Industrial Products</option>
+          <option>Korean Cosmetics & Beauty</option>
+          <option>Custom Sourcing Request</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message / Specifications</label><textarea placeholder="Describe your requirements — quantity, destination port, target price, certifications needed, delivery timeline..."></textarea></div>
+      <button class="form-submit" onclick="this.textContent='✓ Inquiry Sent — We\'ll respond within 24 hours.';this.style.background='#2d7a4f';this.style.color='white'">Send Inquiry</button>
     </div>
   </div>
 </section>
@@ -558,22 +466,19 @@ footer img{height:32px;opacity:.7}
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#cta">Contact</a></li>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <span class="footer-copy">© 2025 NexCore Global · Business Reg. 377-28-01674</span>
   </div>
 </footer>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
-const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), {threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-  const t = document.querySelector(a.getAttribute('href'));
-  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
-}));
+function scrollTo2(id){document.querySelector(id).scrollIntoView({behavior:'smooth'})}
+function filter(cat){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active')}
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
 </script>
 </body>
 </html>
